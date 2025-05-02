@@ -1,7 +1,8 @@
 // Import the functions you need from the SDKs
 // (You'll add these imports at the top of your file after setting up Step 4)
 import { collection, addDoc } from "firebase/firestore";
-import { db } from "./firebase-init"; 
+import { db } from "./database.js"; // Looks one folder up (..) for the file named datase.js
+ 
 
 const toyList = [
     {
@@ -161,22 +162,21 @@ const toyList = [
 ];
 
 // Function to add the toys to Firestore
+const toysCollectionRef = collection(db, "toys"); 
 async function addToysToFirestore() {
-  try {
-    // Get a reference to the 'toys' collection
-    const toysCollectionRef = collection(db, "toys"); // 'db' comes from your Firebase initialization (Step 4)
 
-    for (const toy of toyList) {
-      // Add each toy object as a document to the 'toys' collection
-      // addDoc automatically generates a unique document ID
-      const docRef = await addDoc(toysCollectionRef, toy);
-      console.log("Document written with ID: ", docRef.id);
-    }
-    console.log("All toys added successfully!");
-  } catch (e) {
-    console.error("Error adding documents: ", e);
-  }
+    toyList.forEach(async toy => {
+  try {
+    // Lägg till leksaker som ett nytt dokument i 'toys'-collection
+			const docRef = await addDoc(toysCollectionRef, toy);
+			console.log(`Leksaker "${toy.name}" tillagt med ID: ${docRef.id}`);
+		} catch (e) {
+			console.error(`Fel vid import av leksaker "${toy.name}": `, e);
+		}
+	})
+
+	console.log("Import klar!");
 }
 
 // Call the function to run the import
-// addToysToFirestore(); // You would call this function when you want to trigger the import
+addToysToFirestore(); // You would call this function when you want to trigger the import
