@@ -1,0 +1,10 @@
+.header {
+    background-color: #9ba2b1;
+   
+}
+nav a {
+    padding: 5px;
+    text-align: center;
+    color: rgb(58, 89, 136);
+    gap: 10px;
+}
