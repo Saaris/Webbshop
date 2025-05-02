@@ -7,7 +7,7 @@ import Home from './components/home/Home.jsx'
 import Toys from './components/toys/Toys.jsx'
 import Cart from './components/cart/Cart.jsx'
 import EditToys from './components/edit/EditToys.jsx'
-import AddToys from './components/edit/add/AddToys.jsx'
+import AddToys from './components/add/AddToys.jsx'
 
 const router = createHashRouter (
   [
