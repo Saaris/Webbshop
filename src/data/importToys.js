@@ -179,4 +179,4 @@ async function addToysToFirestore() {
 }
 
 // Call the function to run the import
-addToysToFirestore(); // You would call this function when you want to trigger the import
+//addToysToFirestore(); // You would call this function when you want to trigger the import
