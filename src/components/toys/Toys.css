@@ -1,7 +1,37 @@
 .toy-section {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px;
-    padding: 20px;
+    gap: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+
+}
+.img-container {
+    width: 30%;
+    
+}
+.toy-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+toy-container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
     
 }

@@ -1,5 +1,5 @@
 .header {
-    background-color: #9ba2b1;
+    background-color: #94d4d4;
    
 }
 nav a {
@@ -7,4 +7,7 @@ nav a {
     text-align: center;
     color: rgb(58, 89, 136);
     gap: 10px;
+}
+.logo {
+    width: 15%;
 }

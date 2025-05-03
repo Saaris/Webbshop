@@ -22,16 +22,16 @@ const Toys = () => {
 
     return (
      <div className="toys-container">
-            <h1>All our toys!</h1>
+            <h1>Våra Leksaker!</h1>
         <div className="toy-section">
             {toyList.length === 0 ? (
-                <p>Loading our toys...</p>
+                <p>Laddar alla våra leksaker...</p>
             ) : (
                 toyList.map(t => (                 
                     <div key={t.id} className="toy-card">
-                        <h2> {t.name} </h2>
+                        <h3> {t.name} </h3>
                         <p> {t.description} </p>
-                        <p>Price: {t.price} </p>
+                        <p>Pris: {t.price} </p>
                         {t.image && <img src={t.image} alt={t.name} className="img-container" />}
                     </div>
                 ))
