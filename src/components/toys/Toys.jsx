@@ -7,7 +7,7 @@ import "./Toys.css"
 const Toys = () => {
     // const setToyList = useToyStore(state => state.setToyList)
 
-    const { toyList, setToys } = useToyStore();
+    const { toyList, setToys, increaseToy } = useToyStore();
     console.log('In Toys.jsx, setToys from store is:', typeof setToys, setToys);
 
 
@@ -33,7 +33,11 @@ const Toys = () => {
                         <p> {t.description} </p>
                         <p>Pris: {t.price} </p>
                         {t.image && <img src={t.image} alt={t.name} className="img-container" />}
-                        <button className="add-button">Lägg till</button>
+                        <button 
+                        onClick={increaseToy}
+                        className="add-button">Lägg till
+                       </button>
+                        
                     </div>
                 ))
             )}

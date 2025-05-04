@@ -9,9 +9,16 @@ const useToyStore = create((set) => ({
 
 	toyCount: 0,
 
- 	addToy: () => set(state => ({
+ 	increaseToy: () => set(state => ({
     toyCount: state.toyCount + 1
-  }))
+
+	})),
+
+  	decreaseToy: () => set(state => ({
+	toyCount: state.toyCount - 1
+
+	})),
+  
 
 }))
 
