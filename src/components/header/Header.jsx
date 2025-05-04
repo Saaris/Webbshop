@@ -1,14 +1,15 @@
 import {NavLink} from 'react-router' 
 import './Header.css'
-import Vector from '../../assets/Vector.png'
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Logo from '../../assets/Logo.png'
-import { useToyStore } from '../../data/toyStore.js'
+
 
 
 
 const Header = () => {
 
-
+    
 
     return (
         <div className='header'>
@@ -19,7 +20,7 @@ const Header = () => {
             <NavLink to="/toys">Toys</NavLink>
 
             <NavLink to="/cart">
-            <img src={Vector} className='cart' alt="Cart"/></NavLink>
+            <FontAwesomeIcon icon={faCartShopping}  /></NavLink>
           </nav>
         </div>
 

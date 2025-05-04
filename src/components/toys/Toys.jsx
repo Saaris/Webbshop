@@ -7,7 +7,7 @@ import "./Toys.css"
 const Toys = () => {
     // const setToyList = useToyStore(state => state.setToyList)
 
-    const { toyList, setToys, increaseToy, addToCart } = useToyStore();
+    const { toyList, setToys, toyCount, addToCart, increaseToy } = useToyStore();
     console.log('In Toys.jsx, setToys from store is:', typeof setToys, setToys);
 
 
@@ -34,9 +34,14 @@ const Toys = () => {
                         <p>Pris: {t.price} </p>
                         {t.image && <img src={t.image} alt={t.name} className="img-container" />}
                         <button 
-                        onClick={() => addToCart(t)}
-                        className="add-button">Lägg till
-                       </button>
+                        onClick={() => {
+                            addToCart(t);
+                            increaseToy();
+                        }} 
+                        className="add-button">
+                        Lägg till
+                        </button>
+
                         
                     </div>
                 ))

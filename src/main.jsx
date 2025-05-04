@@ -9,6 +9,7 @@ import Cart from './components/cart/Cart.jsx'
 import EditToys from './components/edit/EditToys.jsx'
 import AddToys from './components/add/AddToys.jsx'
 
+
 const router = createHashRouter (
   [
     {

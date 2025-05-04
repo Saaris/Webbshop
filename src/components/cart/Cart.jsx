@@ -1,23 +1,26 @@
 import { useToyStore } from "../../data/toyStore.js"
 import "./Cart.css"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCirclePlus, faCircleMinus } from '@fortawesome/free-solid-svg-icons'
 
 const Cart = () => {
 
-    const { cart, increaseToy, decreaseToy } = useToyStore();
-    const toyCount = useToyStore(state => state.toyCount)
+    const { cart, increaseToy, decreaseToy, toyCount } = useToyStore();
+    
 
     return (
+        <div className="cart-container">
+            <p className='cart-info'>Detta är din varukorg</p>
         <div className="cart-page">
-           <h2>This is your cart</h2>
-
+           
             {cart.length === 0 ? (
-            <p>Your cart is empty</p>
+            <p>Din varukorg är tom</p>
             ) : (
-            <ul>
-            {cart.map((item, id) => (
-                <>
+            <div>
+            {cart.map((item) => (
+                
                 <li className="cart-item" 
-                key={id}>
+                key={item.id}>
                      {item.image && (
                     <img 
                     src={item.image} 
@@ -25,20 +28,32 @@ const Cart = () => {
                     )}
                     <h3>{item.name}</h3>
                    
-                   </li>
-                   
-                    <div className="price-button-box">
-                    <p>{increaseToy}+</p>
-                    <p>{toyCount}</p>
-                    <p>{decreaseToy}-</p>
-                    <p>{item.price}</p>
+                   <div className="price-button-box">
+                        <p>
+                            <FontAwesomeIcon
+                            onClick={increaseToy}
+                            icon={faCirclePlus}
+                            className="icon-button"
+                            />
+                        </p>
+                        
+                        <p>{toyCount} st</p>
+                        
+                        <p>
+                            <FontAwesomeIcon
+                            onClick={decreaseToy}
+                            icon={faCircleMinus}
+                            className="icon-button"
+                            />
+                        </p>
+                        
+                        <p>{item.price}</p>
                     </div>
-                    </>
-                    
-            ))}
-            </ul>
+                </li>
+                ))}
+            </div>
         )}
-        </div>
-           
+        </div> 
+    </div>     
 )}
 export default Cart

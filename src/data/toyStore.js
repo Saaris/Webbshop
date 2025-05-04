@@ -17,12 +17,19 @@ const useToyStore = create((set) => ({
 	})),
 
   	decreaseToy: () => set(state => ({
-	toyCount: state.toyCount - 1
+	toyCount: Math.max(0, state.toyCount - 1),
 
 	})),
-	addToCart: (toy) => set(state => ({
-		cart: [...state.cart, toy]
+	addToCart: (toy) => set((state => {
+		const alreadyInCart = state.cart.some((item) => item.id === toy.id);
+		if (alreadyInCart) return state;
+		return {
+		  cart: [...state.cart, toy],
+		};
+		
+		
 	  })),
+	
 }))
 
 
