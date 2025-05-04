@@ -8,11 +8,11 @@ import { useToyStore } from '../../data/toyStore.js'
 
 const Header = () => {
 
-  const toyCount = useToyStore(state => state.toyCount)
+
 
     return (
         <div className='header'>
-          {toyCount}
+          
         <img src={Logo} className='logo' />
           <nav className='navbar'>
             <NavLink to="/">Home</NavLink>

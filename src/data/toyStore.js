@@ -1,6 +1,8 @@
 import { create } from 'zustand'
 
 const useToyStore = create((set) => ({
+	cart: [],
+
 	toyList: [],
 
 	setToys: t => set(state => ({
@@ -18,8 +20,9 @@ const useToyStore = create((set) => ({
 	toyCount: state.toyCount - 1
 
 	})),
-  
-
+	addToCart: (toy) => set(state => ({
+		cart: [...state.cart, toy]
+	  })),
 }))
 
 

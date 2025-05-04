@@ -1,0 +1,33 @@
+img {
+    width: 25%;
+}
+.cart-item {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: rgba( 0, 0, 0.1);  
+    
+    p {
+        margin: 0;
+    }
+    
+}
+cart-page {
+    width: 100%;
+}
+ul {
+    
+    margin: 0;
+    padding: 0.2em;
+}
+.price-button-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+
+    p {
+        margin: 0;
+    }
+}
