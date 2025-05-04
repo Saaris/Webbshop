@@ -33,6 +33,7 @@ const Toys = () => {
                         <p> {t.description} </p>
                         <p>Pris: {t.price} </p>
                         {t.image && <img src={t.image} alt={t.name} className="img-container" />}
+                        <button className="add-button">Lägg till</button>
                     </div>
                 ))
             )}

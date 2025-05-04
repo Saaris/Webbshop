@@ -5,8 +5,16 @@ const useToyStore = create((set) => ({
 
 	setToys: t => set(state => ({
 		toyList: t
-	}))
+	})),
+
+	toyCount: 0,
+
+ 	addToy: () => set(state => ({
+    toyCount: state.toyCount + 1
+  }))
 
 }))
+
+
 
 export { useToyStore }
