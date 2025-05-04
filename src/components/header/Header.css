@@ -16,12 +16,17 @@ nav a {
 .logo {
     width: 15%;
    
-}
-.navbar {
-    font-weight: bold;
-    font-size: 24px;
-    gap: 1.5em;
+
 } 
 .cart {
     width: 22px;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-size: 24px;
+    gap: 2.5em;
+    
 }
