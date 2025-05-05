@@ -7,7 +7,7 @@
 
 }
 .img-container {
-    width: 30%;
+    width: 40%;
     
 }
 .toy-card {
@@ -30,8 +30,9 @@
         margin: 0;
     }
 }
-.img-container {
+.search-section {
     display: flex;
-    width: 100vw;
-    height: 100vh;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
 }

@@ -17,3 +17,9 @@ h2 {
     padding: 0.5em;
     background-color: #78afaf;
 }
+.beach-img, .garden-img {
+    width: 50%;
+}
+.pool-img {
+    width: 50%;
+}

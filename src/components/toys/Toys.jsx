@@ -22,7 +22,12 @@ const Toys = () => {
 
     return (
      <div className="toys-container">
-            <h1>Våra Leksaker!</h1>
+            {/* <h1>Våra Leksaker!</h1> */}
+            <section className="search-section">
+                <input type="text" placeholder="Sök leksak..." className="search-bar" />
+                <button className="search-button">Sök</button>
+            </section>
+
         <div className="toy-section">
             {toyList.length === 0 ? (
                 <p>Laddar alla våra leksaker...</p>
