@@ -5,7 +5,7 @@ import { faCirclePlus, faCircleMinus } from '@fortawesome/free-solid-svg-icons'
 
 const Cart = () => {
 
-    const { cart, increaseToy, decreaseToy, toyCount } = useToyStore();
+    const { cart, increaseToy, decreaseToy, toyCount, updateCartQuantity } = useToyStore();
     
 
     return (
@@ -31,17 +31,17 @@ const Cart = () => {
                    <div className="price-button-box">
                         <p>
                             <FontAwesomeIcon
-                            onClick={increaseToy}
+                            onClick={() => updateCartQuantity(item.id, 1)}
                             icon={faCirclePlus}
                             className="icon-button"
                             />
                         </p>
                         
-                        <p>{toyCount} st</p>
+                        <p>{item.quantity} st</p>
                         
                         <p>
                             <FontAwesomeIcon
-                            onClick={decreaseToy}
+                            onClick={() => updateCartQuantity(item.id, 1)}
                             icon={faCircleMinus}
                             className="icon-button"
                             />
