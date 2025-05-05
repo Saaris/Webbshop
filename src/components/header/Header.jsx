@@ -26,7 +26,7 @@ const Header = () => {
              {toyCount > 0 && <span className="cart-badge">{toyCount}</span>}
             </NavLink>
           </nav>
-          <NavLink to="/login"><FontAwesomeIcon icon={faLock} classname='lock' /></NavLink>
+          <NavLink to="/login"><FontAwesomeIcon icon={faLock} className='lock' /></NavLink>
         </div>
 
 )}
