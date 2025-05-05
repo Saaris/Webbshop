@@ -4,15 +4,14 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    gap: 1em;
-   
 }
 nav a {
     padding: 5px;
     text-align: center;
     color: rgb(39, 55, 79);
-    gap: 10px;
+    margin: 0 0.1em;
     text-decoration: none; 
+    font-size: 24px;
 }
 .logo {
     width: 15%;
@@ -23,11 +22,8 @@ nav a {
 }
 .navbar {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     font-weight: bold;
-    font-size: 24px;
-    gap: 2.5em;
 }
 nav a .cart-bagde {
     color: white;
