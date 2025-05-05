@@ -1,6 +1,7 @@
 import { useToyStore } from "../../data/toyStore.js"
 import { useEffect } from "react"
 import { getToys } from "../../data/getToys.js"
+
 import "./Toys.css"
 
 
@@ -22,11 +23,21 @@ const Toys = () => {
 
     return (
      <div className="toys-container">
-            {/* <h1>Våra Leksaker!</h1> */}
+            <h2>Våra Leksaker!</h2>
             <section className="search-section">
                 <input type="text" placeholder="Sök leksak..." className="search-bar" />
                 <button className="search-button">Sök</button>
             </section>
+
+                <div className='sort-section'>
+                    <label htmlFor="sort">Sortera efter:</label>
+                    <select id="sort" className="sort-dropdown">
+                        <option value="name">Namn</option>
+                        <option value="price">Pris</option>
+                        <option value="category">Stigande pris</option>
+                        <option value="category">Fallande pris</option>
+                    </select> 
+                    </div>      
 
         <div className="toy-section">
             {toyList.length === 0 ? (
@@ -34,7 +45,7 @@ const Toys = () => {
             ) : (
                 toyList.map(t => (                 
                     <div key={t.id} className="toy-card">
-                        <h3> {t.name} </h3>
+                        <p className='heading'> {t.name} </p>
                         <p> {t.description} </p>
                         <p>Pris: {t.price} </p>
                         {t.image && <img src={t.image} alt={t.name} className="img-container" />}

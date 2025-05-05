@@ -16,8 +16,8 @@ const Header = () => {
           
         <img src={Logo} className='logo' />
           <nav className='navbar'>
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/toys">Toys</NavLink>
+            <NavLink to="/">Hem</NavLink>
+            <NavLink to="/toys">Leksaker</NavLink>
 
             <NavLink to="/cart">
             <FontAwesomeIcon icon={faCartShopping}  /></NavLink>

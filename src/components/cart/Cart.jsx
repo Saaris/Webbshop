@@ -16,7 +16,7 @@ const Cart = () => {
             {cart.length === 0 ? (
             <p>Din varukorg är tom</p>
             ) : (
-            <div>
+            <div className="cart-list">
             {cart.map((item) => (
                 
                 <li className="cart-item" 
@@ -26,7 +26,7 @@ const Cart = () => {
                     src={item.image} 
                     alt={item.name}/>
                     )}
-                    <h3>{item.name}</h3>
+                    <p>{item.name}</p>
                    
                    <div className="price-button-box">
                         <p>
@@ -51,7 +51,12 @@ const Cart = () => {
                     </div>
                 </li>
                 ))}
+                <section className="total-price">
+                    <p>Totalt pris:</p>
+                    <button className="checkout-button">Betala</button>
+                </section>
             </div>
+           
         )}
         </div> 
     </div>     

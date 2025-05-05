@@ -16,7 +16,7 @@
     padding: 10px;
     text-align: center;
     transition: transform 0.2s, box-shadow 0.2s;
-    gap: 10px;
+    gap: 5px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -35,4 +35,16 @@
     flex-direction: row;
     gap: 10px;
     justify-content: center;
+    padding: 10px;
+    width: 100%;
+}
+.sort-section {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    padding: 10px;
+}
+.heading {
+    font-size: 18px;
 }
