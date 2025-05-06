@@ -16,12 +16,9 @@ const Header = () => {
 
     return (
         <div className='header'>
-         <NavLink to="/"><img src={Logo} className='logo' /></NavLink>
-
+         <NavLink to="/"><img src={Logo} className='logo'/></NavLink>
+         
           <nav className='navbar'>
-           
-           
-
             <NavLink to="/cart">
             <FontAwesomeIcon icon={faCartShopping} />
              {toyCount > 0 && <span className="cart-badge">{toyCount}</span>}

@@ -64,7 +64,7 @@
 }
 .add-button {
     background-color: #78afaf;
-    color: white;
+    color: rgb(24, 24, 24);
     border: none;
     border-radius: 5px;
     padding: 10px 20px;
@@ -72,6 +72,7 @@
     font-size: 16px;
     transition: background-color 0.3s ease;
     margin-top: 10px;
+    font-weight: bold;
 }
 .add-button:hover {
     background-color: #5a8c8c;

@@ -15,9 +15,9 @@ nav a {
     font-size: 24px;
 }
 .logo {
-    width: 50%;
-   
+    width: 50%;   
 } 
+  
 .cart {
     width: 22px;
 }
@@ -39,3 +39,24 @@ nav a .cart-bagde {
     height: 15px;
   
 }
+.tooltip {
+    visibility: hidden;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 8px;
+    border-radius: 4px;
+    position: absolute;
+    bottom: 125%; /* position above logo */
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 1;
+  }
+  
+  .logo-wrapper:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+  }
