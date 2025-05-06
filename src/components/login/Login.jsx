@@ -41,7 +41,6 @@ const Login = () => {
 
   return (
     <div className="login">
-      <h2>Admin login</h2>
       <form className="login-form" onSubmit={handleSubmit}>
         <label className="login-label" htmlFor="username">
           Användarnamn

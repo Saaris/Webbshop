@@ -37,7 +37,7 @@ const Cart = () => {
                             />
                         </p>
                         
-                        <p>{item.quantity} st</p>
+                        <p> st</p>
                         
                         <p>
                             <FontAwesomeIcon

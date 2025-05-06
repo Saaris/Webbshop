@@ -15,10 +15,10 @@ const Header = () => {
 
     return (
         <div className='header'>
-        <img src={Logo} className='logo' />
+         <NavLink to="/"><img src={Logo} className='logo' /></NavLink>
 
           <nav className='navbar'>
-            <NavLink to="/">Hem</NavLink>
+           
             <NavLink to="/toys">Leksaker</NavLink>
 
             <NavLink to="/cart">

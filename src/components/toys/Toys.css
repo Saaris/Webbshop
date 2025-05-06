@@ -1,10 +1,11 @@
+
 .toy-section {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 10px;
-    padding: 10px;
-    box-sizing: border-box;
-
+    grid-template-columns: repeat(auto-fill, minmax(clamp(200px, 25vw, 300px), 1fr));
+    gap: calc(5px + 0.5vw); 
+    padding: calc(5px + 0.5vw); 
+    width: 100%;
+      
 }
 .img-container {
     width: 40%;
@@ -49,7 +50,7 @@
     font-size: 18px;
 }
 .toys-container {
-    background-color: #f0f0f0;
+    background-color: #ffffff;
 
     h2 {
         
@@ -60,4 +61,18 @@
         background-color: #78afaf;
         color:rgb(39, 55, 79);
 }
+}
+.add-button {
+    background-color: #78afaf;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+.add-button:hover {
+    background-color: #5a8c8c;
 }
