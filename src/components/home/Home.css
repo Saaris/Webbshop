@@ -15,3 +15,20 @@
 .pool-img {
     width: 50%;
 }
+.shop-button {
+  position: absolute;
+  bottom: 50px;
+  left: 150px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer; 
+  background-color: #ffffff;
+  color: rgb(8, 8, 8);
+  border-radius: 5px;
+  font-size: 20px;
+  transition: background-color 0.3s ease;
+   margin-top: 10px;
+}
+.shop-button:hover {
+  background-color: #e7e7e7;
+}

@@ -1,9 +1,10 @@
 import {NavLink} from 'react-router' 
 import './Header.css'
-import { faCartShopping, faLock } from '@fortawesome/free-solid-svg-icons'
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Logo from '../../assets/Logo.png'
 import { useToyStore } from '../../data/toyStore.js'
+import adminIcon from '../../assets/adminIcon.png'
 
 
 
@@ -19,14 +20,14 @@ const Header = () => {
 
           <nav className='navbar'>
            
-            <NavLink to="/toys">Leksaker</NavLink>
+           
 
             <NavLink to="/cart">
             <FontAwesomeIcon icon={faCartShopping} />
              {toyCount > 0 && <span className="cart-badge">{toyCount}</span>}
             </NavLink>
           </nav>
-          <NavLink to="/login"><FontAwesomeIcon icon={faLock} className='lock' /></NavLink>
+          <NavLink to="/login"><img src={adminIcon} alt='admin icon' className='admin-icon'></img></NavLink>
         </div>
 
 )}

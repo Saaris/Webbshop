@@ -1,7 +1,8 @@
 import './Home.css'
-import strandleksaker from '../../assets/strandleksaker.jpg'
+import hinkset from '../../assets/hinkset.jpg'
 import gardentoys from '../../assets/gardentoys.jpg'
 import pool from '../../assets/pool.jpg'
+import { NavLink } from 'react-router'
 
 const Home = () => {
     return (
@@ -9,9 +10,13 @@ const Home = () => {
 
               <div className="image-section">
               <div className="img-info-container">
-                <img src={strandleksaker} alt="Strandleksaker" className="beach-img" />
+                <img src={hinkset} alt="Strandleksaker" className="beach-img" />
                 <img src={gardentoys} alt="Garden Toys" className="garden-img" />
                 <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis . </p>
+                
+                <NavLink to="/toys">
+                <button className="shop-button">Se våra leksaker</button>
+                </NavLink>
                 </div>
                 
                 <div className="img-info-container">
