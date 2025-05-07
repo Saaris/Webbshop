@@ -42,9 +42,7 @@ const Login = () => {
   return (
     <div className="login">
       <form className="login-form" onSubmit={handleSubmit}>
-        <label className="login-label" htmlFor="username">
-          Användarnamn
-        </label>
+        <p className='username'>Användarnamn</p>
         <input
           className="login-input"
           type="text"
@@ -57,9 +55,7 @@ const Login = () => {
           <p className="error-message">{errorMessage.username}</p>
         )}
 
-        <label className="login-label" htmlFor="password">
-          Lösenord
-        </label>
+        <p className='password'>Lösenord</p> 
         <input
           className="login-input"
           type="password"

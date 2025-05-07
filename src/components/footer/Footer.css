@@ -3,3 +3,29 @@
   height: 24px;
   margin: 0 10px;
 }
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #f1f1f1;
+  font-size: 14px;
+
+  p {
+    margin: 0;
+  }
+}
+.icons-container {
+  padding: 10px;
+}
+.admin-icon-container {
+  width:100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.admin-icon {
+    width: 15px;
+    height: 15px;
+}

@@ -34,11 +34,6 @@ nav a .cart-bagde {
 .fa-lock {
     float: right;
 }
-.admin-icon {
-    width: 15px;
-    height: 15px;
-  
-}
 .tooltip {
     visibility: hidden;
     background-color: black;

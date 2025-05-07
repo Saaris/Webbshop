@@ -1,38 +1,47 @@
-import { create } from 'zustand'
+import { create } from 'zustand';
 
 const useToyStore = create((set) => ({
-	cart: [],
+  cart: [],
+  toyList: [],
+  toyCount: 0, 
 
-	toyList: [],
+  setToys: (t) => set((state) => ({
+    toyList: t,
+  })),
 
-	setToys: t => set(state => ({
-		toyList: t
-	})),
+  addToCart: (toy) =>
+    set((state) => {
+      const alreadyInCart = state.cart.some((item) => item.id === toy.id);
+      if (alreadyInCart) {
+        return {
+          cart: state.cart.map((item) =>
+            item.id === toy.id ? { ...item, quantity: item.quantity + 1 } : item
+          ),
+          toyCount: state.toyCount + 1,
+        };
+      }
+      return {
+        cart: [...state.cart, { ...toy, quantity: 1 }],
+        toyCount: state.toyCount + 1, 
+      };
+    }),
 
-	toyCount: 0,
+  updateCartQuantity: (id, change) =>
+    set((state) => {
+      const newCart = state.cart
+        .map((item) =>
+          item.id === id
+            ? { ...item, quantity: Math.max(0, item.quantity + change) }
+            : item
+        )
+        .filter((item) => item.quantity > 0);
+      const newToyCount = newCart.reduce((sum, item) => sum + item.quantity, 0);
+      return {
+        cart: newCart,
+        toyCount: newToyCount, 
+      };
+    }),
+}));
 
- 	increaseToy: () => set(state => ({
-    toyCount: state.toyCount + 1
-
-	})),
-
-  	decreaseToy: () => set(state => ({
-	toyCount: Math.max(0, state.toyCount - 1),
-
-	})),
-	addToCart: (toy) => set((state => {
-		const alreadyInCart = state.cart.some((item) => item.id === toy.id);
-		if (alreadyInCart) return state;
-		return {
-		  cart: [...state.cart, toy],
-		};
-		
-		
-	  })),
-	
-}))
-
-
-
-export { useToyStore }
+export { useToyStore };
 
