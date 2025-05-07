@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlus, faCircleMinus } from '@fortawesome/free-solid-svg-icons';
 
 const Cart = () => {
-  const { cart, updateCartQuantity } = useToyStore();
+  const { cart, updateCartQuantity, totalPrice } = useToyStore();
 
   return (
     <div className="cart-container">
@@ -20,7 +20,16 @@ const Cart = () => {
                   <img src={item.image} alt={item.name} />
                 )}
                 <p>{item.name}</p>
+
                 <div className="price-button-box">
+                <p>
+                    <FontAwesomeIcon
+                      onClick={() => updateCartQuantity(item.id, -1)} 
+                      icon={faCircleMinus}
+                      className="icon-button"
+                    />
+                  </p>
+                  <p>{item.quantity} st</p> 
                   <p>
                     <FontAwesomeIcon
                       onClick={() => updateCartQuantity(item.id, 1)} 
@@ -28,20 +37,14 @@ const Cart = () => {
                       className="icon-button"
                     />
                   </p>
-                  <p>{item.quantity} st</p> 
-                  <p>
-                    <FontAwesomeIcon
-                      onClick={() => updateCartQuantity(item.id, -1)} 
-                      icon={faCircleMinus}
-                      className="icon-button"
-                    />
-                  </p>
-                  <p>{item.price}</p>
+                  
+                 
+                  <p>{(item.price * item.quantity).toFixed(2)} kr</p>
                 </div>
               </li>
             ))}
             <section className="total-price">
-              <p>Totalt pris:</p>
+              <p>Totalt pris:{totalPrice}</p>
               <button className="checkout-button">Betala</button>
             </section>
           </div>

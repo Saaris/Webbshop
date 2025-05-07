@@ -5,7 +5,9 @@ async function getToys(setToys) {
 	console.log('getToys received:', typeof setToys, setToys);
 	const toysCollection = collection(db, 'toys');
 	const toysSnapshot = await getDocs(toysCollection);
-	const toyList = toysSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+	const toyList = toysSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data(),
+		price: parseFloat(doc.data().price),
+	 }));
 	setToys(toyList);
 	console.log('getToys', toyList)
 }
