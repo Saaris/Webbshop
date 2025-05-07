@@ -62,7 +62,7 @@
         color:rgb(39, 55, 79);
 }
 }
-.add-button {
+.add-toy-button {
     background-color: #78afaf;
     color: rgb(24, 24, 24);
     border: none;
@@ -74,6 +74,14 @@
     margin-top: 10px;
     font-weight: bold;
 }
-.add-button:hover {
+.add-toy-button:hover {
     background-color: #5a8c8c;
+}
+.edit-buttons-section {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 10px;
+    margin-right: 10px;
+    
 }

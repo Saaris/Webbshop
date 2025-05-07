@@ -4,6 +4,8 @@ import { getToys } from "../../data/getToys.js";
 import "./Toys.css";
 
 const Toys = () => {
+  const { isLoggedIn } = useToyStore();
+
   const { toyList, setToys, addToCart } = useToyStore();
 
   useEffect(() => {
@@ -30,6 +32,13 @@ const Toys = () => {
         </select>
       </div>
 
+      {isLoggedIn && (
+        <div className="edit-buttons-section">
+          <button className="edit-button">Redigera</button>
+          <button className="delete-button">Ta bort</button>
+        </div>
+      )}
+
       <div className="toy-section">
         {toyList.length === 0 ? (
           <p>Laddar alla våra leksaker...</p>
@@ -42,7 +51,7 @@ const Toys = () => {
               <p>Pris: {t.price}</p>
               <button
                 onClick={() => addToCart(t)} // Endast addToCart
-                className="add-button"
+                className="add-toy-button"
               >
                 Lägg till
               </button>

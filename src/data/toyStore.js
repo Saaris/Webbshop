@@ -1,6 +1,9 @@
 import { create } from 'zustand';
 
 const useToyStore = create((set) => ({
+	isLoggedIn: false,
+	setIsLoggedIn: (status) => set({ isLoggedIn: status }),
+	
   cart: [],
   toyList: [],
   toyCount: 0, 

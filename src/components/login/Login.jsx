@@ -1,12 +1,17 @@
 import './Login.css';
 import { useState } from 'react';
+import { useToyStore } from '../../data/toyStore.js';
 import { useNavigate } from 'react-router';
 import { inputValidation } from '../../data/validate.js'; 
 
 const Login = () => {
   const [errorMessage, setErrorMessage] = useState({ username: '', password: '' });
+  
   const [formData, setFormData] = useState({ username: '', password: '' });
+  
   const navigate = useNavigate(); 
+
+  const { isLoggedIn, setIsLoggedIn } = useToyStore(); 
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -28,16 +33,21 @@ const Login = () => {
     
     const validationResult = inputValidation(formData);
     if (validationResult.formIsValid) {
-      console.log('Form is valid, proceed with login');
+      console.log('Admin is logged in'); 
 
-    
-      setTimeout(() => {
-        navigate("/toys");
-      }, 1500);
+      setIsLoggedIn(true);
+
     } else {
-      setErrorMessage(validationResult.message);
+      console.log('Login failed'); 
+     setErrorMessage(validationResult.message);
     }
+
+    setTimeout(() => {
+    navigate("/toys");
+    }, 1500);
+
   };
+  
 
   return (
     <div className="login">
