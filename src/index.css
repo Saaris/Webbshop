@@ -1,5 +1,10 @@
 :root {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --headerBGcolor: #ede0bf; 
+    --headingBGColor:#f8f2e2;
+    --textColor: rgb(19, 19, 20);
+    --whiteColor: rgb(245, 242, 242);
+   
+  font-family: 'gill-sans', sans-serif;
   line-height: 1.5;
   font-weight: 400;
   font-synthesis: none;

@@ -1,5 +1,5 @@
 .header {
-    background-color: #94d4d4;
+    background-color: var(--headerBGcolor);
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -7,51 +7,41 @@
 
 }
 nav a {
-    padding: 5px;
-    text-align: center;
-    color: rgb(39, 55, 79);
-    margin: 0 0.1em;
-    text-decoration: none; 
-    font-size: 24px;
+    color: var(--textColor);
+    font-size: 20px;
+    padding: 2px 5px;
+    border: 1px solid var(--textColor);
+    border-radius: 4px;
 }
 .logo {
     width: 50%;   
-} 
-  
-.cart {
-    width: 22px;
+
 }
 .navbar {
     display: flex;
     align-items: center;
     font-weight: bold;
+    gap: 20px;
+    max-width: 400px;
+    min-width: 100px;
+    justify-content: space-between;
 }
-nav a .cart-bagde {
-    color: white;
+.cart-bagde{
+    color: rgb(245, 242, 242);
     padding: 2px 5px;
     font-size: 12px;
+    border: 1px solid rgb(245, 242, 242);
+}
+
+.product-heading{
+        color: var(--textColor);
+        font-size: 20px;
+        padding: 2px 5px;
+        border: 1px solid var(--textColor);
+        border-radius: 4px;
+        text-decoration: none;
+    
 }
 .fa-lock {
     float: right;
 }
-.tooltip {
-    visibility: hidden;
-    background-color: black;
-    color: #fff;
-    text-align: center;
-    padding: 5px 8px;
-    border-radius: 4px;
-    position: absolute;
-    bottom: 125%; /* position above logo */
-    left: 50%;
-    transform: translateX(-50%);
-    white-space: nowrap;
-    opacity: 0;
-    transition: opacity 0.3s;
-    z-index: 1;
-  }
-  
-  .logo-wrapper:hover .tooltip {
-    visibility: visible;
-    opacity: 1;
-  }

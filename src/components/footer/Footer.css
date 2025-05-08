@@ -9,7 +9,7 @@
   justify-content: center;
   align-items: center;
   padding: 20px;
-  background-color: #f1f1f1;
+  background-color: var(--headingBGColor);
   font-size: 14px;
 
   p {
@@ -22,7 +22,7 @@
 .admin-icon-container {
   width:100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 .admin-icon {

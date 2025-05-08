@@ -50,20 +50,22 @@ const Login = () => {
   
 
   return (
-    <div className="login">
-      <form className="login-form" onSubmit={handleSubmit}>
-        <p className='username'>Användarnamn</p>
-        <input
-          className="login-input"
-          type="text"
-          name="username"
-          value={formData.username}
-          onChange={handleInputChange}
-          required
-        />
-        {errorMessage.username && (
-          <p className="error-message">{errorMessage.username}</p>
-        )}
+    <div className="login-container">
+      <h2>Admin login</h2>
+      <div className="login">
+        <form className="login-form" onSubmit={handleSubmit}>
+          <p className='username'>Användarnamn</p>
+          <input
+            className="login-input"
+            type="text"
+            name="username"
+            value={formData.username}
+            onChange={handleInputChange}
+            required
+          />
+          {errorMessage.username && (
+            <p className="error-message">{errorMessage.username}</p>
+          )}
 
         <p className='password'>Lösenord</p> 
         <input
@@ -83,6 +85,7 @@ const Login = () => {
           Logga in
         </button>
       </form>
+    </div>
     </div>
   );
 };
