@@ -1,5 +1,6 @@
 import React from 'react';
 import AddItemForm from './AddItemForm.jsx';
+import { validateSchema } from '../../data/validate.js';
 
 function AddToys() {
   const handleAddItem = (itemData) => {
