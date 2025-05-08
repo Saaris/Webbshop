@@ -65,9 +65,12 @@ function AddItemForm({ onSubmit }) {
           id="name"
           value={formData.name}
           onChange={handleChange}
-        />
+          placeholder='Namn på produkt'
+          className='inputs'/>
+
         {errors.name && <span className="error">{errors.name}</span>}
       </div>
+
       <div className="form-group">
       <p className="name-input">Kategori</p>
         <input
@@ -75,7 +78,8 @@ function AddItemForm({ onSubmit }) {
           id="category"
           value={formData.category}
           onChange={handleChange}
-        />
+          className='inputs' />
+
         {errors.category && <span className="error">{errors.category}</span>}
       </div>
 
@@ -85,9 +89,12 @@ function AddItemForm({ onSubmit }) {
           id="description"
           value={formData.description}
           onChange={handleChange}
-        ></input>
+          className='inputs'>
+        </input>
+
         {errors.description && <span className="error">{errors.description}</span>}
       </div>
+
       <div className="form-group">
       <p className="name-input">Pris</p>
         <input
@@ -95,9 +102,11 @@ function AddItemForm({ onSubmit }) {
           id="price"
           value={formData.price}
           onChange={handleChange}
-        />
+          className="price-input"/>
+
         {errors.price && <span className="error">{errors.price}</span>}
       </div>
+
       <div className="form-group">
       <p className="name-input">Bild url</p>
         <input
@@ -105,14 +114,17 @@ function AddItemForm({ onSubmit }) {
           id="image"
           value={formData.image}
           onChange={handleChange}
-        />
+          className='inputs'
+          placeholder='https://example.com/image.jpg'/>
+
         {errors.image && <span className="error">{errors.image}</span>}
       </div>
+
       <button 
       className='add-new-item'
-      type="submit">Lägg till</button>
+      type="submit">Lägg till
+      </button>
     </form>
   );
-
 }
 export default AddItemForm;

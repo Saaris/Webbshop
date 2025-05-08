@@ -31,6 +31,9 @@
 .add-new-item {
     cursor: pointer;
     transition: ease-in-out 0.3s;
+    padding: 5px 10px;
+    font-size: 18px;
+    border-radius: 4px;
 }
 .form-input {
     display: flex;
@@ -40,4 +43,23 @@
     display: flex;
     flex-direction: column;
     color: rgb(174, 71, 71);
+    white-space: pre-wrap;
 } 
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+.price-input {
+    width: 40%;
+    font-size: 18px;
+    border-radius: 4px;
+    padding: 10px;
+}
+.inputs {
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 18px;
+
+}
