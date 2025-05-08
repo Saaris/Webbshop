@@ -2,9 +2,11 @@ import { useToyStore } from "../../data/toyStore.js";
 import { useEffect } from "react"; 
 import { getToys } from "../../data/getToys.js";
 import "./Toys.css";
+import { useNavigate } from "react-router";
 
 const Toys = () => {
   const { isLoggedIn, toyList, addToCart, isEditing, editToy, setToys, setEditing, handleEditClick, handleSaveClick, handleInputChange } = useToyStore();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (toyList.length === 0) {
@@ -22,7 +24,10 @@ const Toys = () => {
 
       {isLoggedIn && (
         <div className="edit-buttons-section">
-          <button className="add-item-button" onClick={() => navigate('/addToys')}>
+          <button
+            className="add-item-button"
+            onClick={() => navigate('/addToys')}
+          >
             Lägg till produkt
           </button>
         </div>
@@ -57,6 +62,13 @@ const Toys = () => {
                     onChange={(e) => handleInputChange('price', e.target.value)}
                     placeholder="Pris"
                   />
+                  <input
+                    type="text"
+                    name="image"
+                    value={editToy?.image || ''}
+                    onChange={(e) => handleInputChange('image', e.target.value)}
+                    placeholder="Bild URL"
+                  />
                   <button onClick={handleSaveClick}>Spara</button>
                 </div>
               ) : (
@@ -65,6 +77,9 @@ const Toys = () => {
                   {t.image && <img src={t.image} alt={t.name} className="img-container" />}
                   <p>{t.description}</p>
                   <p>Pris: {t.price}</p>
+                  <button onClick={() => addToCart(t)} className="add-toy-button">
+                    Lägg till
+                  </button>
                   {isLoggedIn && (
                     <button onClick={() => handleEditClick(t)} className="edit-toy-button">
                       Redigera
