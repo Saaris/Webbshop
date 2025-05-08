@@ -1,4 +1,6 @@
 import { create } from 'zustand';
+import { collection, getDocs, addDoc } from 'firebase/firestore';
+import { db } from './database'; // Ensure you have a Firestore instance exported from database.js
 
 const useToyStore = create((set) => ({
   isLoggedIn: false,
@@ -101,6 +103,32 @@ const useToyStore = create((set) => ({
         [name]: value,
       },
     })),
+
+  toys: [],
+  loading: false,
+  error: null,
+
+  fetchToys: async () => {
+    set({ loading: true, error: null });
+    try {
+      const querySnapshot = await getDocs(collection(db, 'toys'));
+      const toys = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+      set({ toys, loading: false });
+    } catch (error) {
+      set({ error: error.message, loading: false });
+    }
+  },
+
+  addToy: async (newToy) => {
+    try {
+      const docRef = await addDoc(collection(db, 'toys'), newToy);
+      set((state) => ({ toys: [...state.toys, { id: docRef.id, ...newToy }] }));
+    } catch (error) {
+      set({ error: error.message });
+    }
+  },
 }));
+
+
 
 export { useToyStore };

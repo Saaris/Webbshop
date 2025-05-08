@@ -5,7 +5,7 @@ import Footer from './components/footer/Footer.jsx'
 import { useToyStore } from './data/toyStore.js'
 
 function App() {
-  const { isLoggedIn } = useToyStore()
+  const { isLoggedIn, setIsLoggedIn } = useToyStore()
 
   return (
     <div className="App">
@@ -14,7 +14,7 @@ function App() {
       </header>
         <Outlet />
       <footer>
-        <Footer isLoggedIn={isLoggedIn} />
+        <Footer isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       </footer>
     </div>
 

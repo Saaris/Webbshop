@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import Joi from 'joi';
 import './AddItemForm.css';
 import { validateSchema, inputValidation } from '../../data/validate';
+import { collection, addDoc } from 'firebase/firestore';
+import { db } from '../../data/database';
 
-function AddItemForm({ onSubmit }) {
+function AddItemForm({ onSubmit, updateToyList }) {
   const [formData, setFormData] = useState({
     name: '',
     category: '',
@@ -35,8 +36,10 @@ function AddItemForm({ onSubmit }) {
     }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+
+    console.log('Button clicked: Lägg till');
 
     const { message, formIsValid } = inputValidation(formData);
     if (!formIsValid) {
@@ -45,14 +48,27 @@ function AddItemForm({ onSubmit }) {
     }
 
     setErrors({});
-    onSubmit(formData);
-    setFormData({
-      name: '',
-      category: '',
-      description: '',
-      price: '',
-      image: ''
-    });
+
+    try {
+      // Add the new item to Firestore
+      await addDoc(collection(db, 'toys'), formData);
+      console.log('New toy added to Firestore:', formData);
+
+      // Update the local toy list
+      if (updateToyList) {
+        updateToyList(formData);
+      }
+
+      setFormData({
+        name: '',
+        category: '',
+        description: '',
+        price: '',
+        image: ''
+      });
+    } catch (error) {
+      console.error('Error adding toy to Firestore:', error);
+    }
   };
 
   return (
@@ -121,8 +137,8 @@ function AddItemForm({ onSubmit }) {
       </div>
 
       <button 
-      className='add-new-item'
-      type="submit">Lägg till
+      onClick={handleSubmit}
+      className='add-new-item'>Lägg till
       </button>
     </form>
   );

@@ -3,16 +3,22 @@ import { useEffect } from "react";
 import { getToys } from "../../data/getToys.js";
 import "./Toys.css";
 import { useNavigate } from "react-router";
+import { onSnapshot, collection } from 'firebase/firestore';
+import { db } from '../../data/database';
+
 
 const Toys = () => {
   const { isLoggedIn, toyList, addToCart, isEditing, editToy, setToys, setEditing, handleEditClick, handleSaveClick, handleInputChange, handleSortChange } = useToyStore();
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (toyList.length === 0) {
-      getToys(setToys);
-    }
-  }, [toyList.length, setToys]);
+    const unsubscribe = onSnapshot(collection(db, 'toys'), (snapshot) => {
+      const toysData = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+      setToys(toysData);
+    });
+
+    return () => unsubscribe(); // Clean up the listener on unmount
+  }, [setToys]);
 
   return (
     <div className="toys-container">

@@ -28,7 +28,7 @@ const Footer = ({ isLoggedIn, setIsLoggedIn }) => {
                  </NavLink>
                 </div>
 
-                <p>&copy; 2023 MyToy Aktibolag</p>
+                <p>&copy; 2023 MyToys Aktiebolag</p>
                 <p>mystoys@outlook.com</p>
                 <p>+46 123 456 789</p>
                 <p>Redegatan 2, 42121, Sverige</p>
