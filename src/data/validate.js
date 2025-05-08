@@ -17,20 +17,22 @@ const validateSchema = Joi.object({
       'any.required': 'Du behöver fylla i ditt lösenord.'
     }),
   name: Joi.string()
-    .min(3)
+    .min(5)
     .max(30)
+    .regex(/^[a-zA-Z0-9 åäöÅÄÖ]*$/)
     .optional()
-    .label('Name'),
+    .label('Namn'),
   category: Joi.string()
     .min(3)
     .max(30)
+    .regex(/^[a-zA-Z0-9 åäöÅÄÖ]*$/)
     .optional()
-    .label('Category'),
+    .label('Kategori'),
   description: Joi.string()
     .min(10)
     .max(500)
     .optional()
-    .label('Description'),
+    .label('Beskrivning'),
   price: Joi.number()
     .positive()
     .optional()
@@ -38,7 +40,7 @@ const validateSchema = Joi.object({
   image: Joi.string()
     .uri()
     .optional()
-    .label('Image URL')
+    .label('Bild URL')
 });
 
 function inputValidation(touchedInput) {
@@ -49,6 +51,8 @@ function inputValidation(touchedInput) {
   if (results.error) {
     results.error.details.forEach((e) => {
       const key = e.context.key;
+
+      const regex = /^[a-zA-Z0-9 åäöÅÄÖ]*$/;
 
       if (key === 'username') {
         message[key] = 'Användarnamnet är inte korrekt. Försök igen.';
@@ -63,7 +67,7 @@ function inputValidation(touchedInput) {
       } else if (key === 'category') {
         message[key] = 'Kategorin måste vara mellan 3 och 30 tecken.';
       } else if (key === 'description') {
-        message[key] = 'Beskrivningen måste vara mellan 10 och 500 tecken.';
+        message[key] = 'Beskrivningen måste vara poolleksak, trädgårdsleksak eller strandleksak".';
       }
     });
   }
