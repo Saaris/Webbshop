@@ -26,13 +26,13 @@ const validateSchema = Joi.object({
   category: Joi.string()
     .min(3)
     .max(30)
-    .regex(/^[a-zA-Z0-9 åäöÅÄÖ.,!?()-]*$/)
     .optional()
     .label('Kategori'),
 
   description: Joi.string()
-    .min(10)
-    .max(500)
+    .min(5)
+    .max(70)
+    .regex(/^[a-zA-Z0-9 åäöÅÄÖ.,!?()-]*$/)
     .optional()
     .label('Beskrivning'),
 
@@ -68,6 +68,7 @@ function inputValidation(touchedInput) {
         //addItem inputs
       } else if (key === 'price') {
         message[key] = 'Priset måste vara ett positivt nummer.';
+
       } else if (key === 'name') {
         if (!regex.test(touchedInput.name)) {
           message[key] = 'Endast (a-z, åäö,.) och mellanslag är tillåtna.';
@@ -76,10 +77,17 @@ function inputValidation(touchedInput) {
         }
       } else if (key === 'image') {
         message[key] = 'Bildens URL måste vara giltig.';
-      } else if (key === 'category') {
-        message[key] = 'Kategorin måste vara mellan 3 och 30 tecken.';
+
       } else if (key === 'description') {
-        message[key] = 'Beskrivningen måste vara poolleksak, trädgårdsleksak eller strandleksak".'; }
+        message[key] = 'Kategorin måste vara mellan 3 och 30 tecken.';
+        if (!regex.test(touchedInput.description)) {
+          message[key] = 'Endast (a-z, åäö,.) och mellanslag är tillåtna.';
+        }
+          else if (touchedInput.description.length < 3 || touchedInput.description.length > 70) {
+            message[key] = 'Beskrivning måste vara mellan 5 och 70 tecken.';
+      }
+      } else if (key === 'category') {
+        message[key] = 'Kategori måste vara poolleksak, trädgårdsleksak eller strandleksak".'; }
     });
   }
 
