@@ -8,6 +8,7 @@ import Toys from './components/toys/Toys.jsx'
 import Cart from './components/cart/Cart.jsx'
 import EditToys from './components/edit/EditToys.jsx'
 import AddToys from './components/add/AddToys.jsx'
+import AddItemForm from './components/add/AddItemForm.jsx'
 import Login from './components/login/Login.jsx'
 import Pay from './components/pay/Pay.jsx'
 

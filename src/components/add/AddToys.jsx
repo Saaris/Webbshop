@@ -1,5 +1,5 @@
 import React from 'react';
-import AddItemForm from './AddItemForm';
+import AddItemForm from './AddItemForm.jsx';
 
 function AddToys() {
   const handleAddItem = (itemData) => {
@@ -8,8 +8,8 @@ function AddToys() {
   };
 
   return (
-    <div>
-      <h1>Add New Toy</h1>
+    <div className='add'>
+      <h2>Lägg till ny produkt</h2>
       <AddItemForm onSubmit={handleAddItem} />
     </div>
   );
