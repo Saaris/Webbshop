@@ -58,10 +58,13 @@ const useToyStore = create((set) => ({
         (sum, item) => sum + parseFloat(item.price) * item.quantity,
         0
       );
+
+      const newToyCount = newCart.reduce((sum, item) => sum + item.quantity, 0); // Calculate total toy count
   
       return {
         cart: newCart,
         totalPrice: newTotalPrice,
+        toyCount: newToyCount, // Update toyCount
       };
     }),
 

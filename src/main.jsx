@@ -9,6 +9,7 @@ import Cart from './components/cart/Cart.jsx'
 import EditToys from './components/edit/EditToys.jsx'
 import AddToys from './components/add/AddToys.jsx'
 import Login from './components/login/Login.jsx'
+import Pay from './components/pay/Pay.jsx'
 
 
 const router = createHashRouter (
@@ -42,6 +43,10 @@ const router = createHashRouter (
       path: '/addToys',
       Component: AddToys
       },
+      {
+      path: '/pay',
+      Component: Pay
+      }
     ]
   }
   ]

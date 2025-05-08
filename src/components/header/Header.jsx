@@ -19,7 +19,7 @@ const Header = () => {
          <NavLink to="/"><img src={Logo} className='logo'/></NavLink>
          
           <nav className='navbar'>
-            <NavLink to="/toys" className='product-heading'>Produkter</NavLink>
+            <NavLink to="/toys" className='heading'>Produkter</NavLink>
             <NavLink to="/cart">
             <FontAwesomeIcon icon={faCartShopping} />
              {toyCount > 0 && <span className="cart-badge">{toyCount}</span>}

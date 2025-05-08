@@ -5,7 +5,7 @@ import "./Toys.css";
 import { useNavigate } from "react-router";
 
 const Toys = () => {
-  const { isLoggedIn, toyList, addToCart, isEditing, editToy, setToys, setEditing, handleEditClick, handleSaveClick, handleInputChange } = useToyStore();
+  const { isLoggedIn, toyList, addToCart, isEditing, editToy, setToys, setEditing, handleEditClick, handleSaveClick, handleInputChange, handleSortChange } = useToyStore();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -16,11 +16,24 @@ const Toys = () => {
 
   return (
     <div className="toys-container">
-      <h2>Våra Leksaker!</h2>
-      <section className="search-section">
-        <input type="text" placeholder="Sök leksak..." className="search-bar" />
-        <button className="search-button">Sök</button>
-      </section>
+
+      <div className="search-container">
+        <section className="search-section">
+          <input type="text" placeholder="Sök leksak..." className="search-bar" />
+          <button className="search-button">Sök</button>
+          </section>
+
+
+          <div className="sort-section">
+            <label htmlFor="sort">Sortera:</label>
+            <select id="sort" className="sort-dropdown" onChange={handleSortChange}>
+              <option value="name">Namn</option>
+              <option value="price-asc">Lägst till högst pris</option>
+              <option value="price-desc">Högst till lägst pris</option>
+             
+            </select>
+          </div>
+      </div>
 
       {isLoggedIn && (
         <div className="edit-buttons-section">
@@ -47,6 +60,8 @@ const Toys = () => {
                     value={editToy?.name || ''}
                     onChange={(e) => handleInputChange('name', e.target.value)}
                     placeholder="Namn"
+                    className="edit-input"
+                    
                   />
                   <input
                     type="text"
@@ -54,6 +69,7 @@ const Toys = () => {
                     value={editToy?.description || ''}
                     onChange={(e) => handleInputChange('description', e.target.value)}
                     placeholder="Beskrivning"
+                    className="edit-input"
                   />
                   <input
                     type="number"
@@ -61,6 +77,7 @@ const Toys = () => {
                     value={editToy?.price || ''}
                     onChange={(e) => handleInputChange('price', e.target.value)}
                     placeholder="Pris"
+                    className="edit-price-input"
                   />
                   <input
                     type="text"
@@ -68,6 +85,7 @@ const Toys = () => {
                     value={editToy?.image || ''}
                     onChange={(e) => handleInputChange('image', e.target.value)}
                     placeholder="Bild URL"
+                    className="edit-img-input"
                   />
                   <button onClick={handleSaveClick}>Spara</button>
                 </div>
@@ -77,9 +95,11 @@ const Toys = () => {
                   {t.image && <img src={t.image} alt={t.name} className="img-container" />}
                   <p>{t.description}</p>
                   <p>Pris: {t.price}</p>
-                  <button onClick={() => addToCart(t)} className="add-toy-button">
-                    Lägg till
-                  </button>
+                  {!isLoggedIn && (
+                    <button onClick={() => addToCart(t)} className="add-toy-button">
+                      Lägg till
+                    </button>
+                  )}
                   {isLoggedIn && (
                     <button onClick={() => handleEditClick(t)} className="edit-toy-button">
                       Redigera

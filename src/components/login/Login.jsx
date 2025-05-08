@@ -34,18 +34,12 @@ const Login = () => {
     const validationResult = inputValidation(formData);
     if (validationResult.formIsValid) {
       console.log('Admin is logged in'); 
-
       setIsLoggedIn(true);
-
+      navigate("/toys");
     } else {
       console.log('Login failed'); 
      setErrorMessage(validationResult.message);
     }
-
-    setTimeout(() => {
-    navigate("/toys");
-    }, 1500);
-
   };
   
 

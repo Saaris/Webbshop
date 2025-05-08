@@ -2,9 +2,11 @@ import { useToyStore } from "../../data/toyStore.js";
 import "./Cart.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlus, faCircleMinus } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router';
 
 const Cart = () => {
   const { cart, updateCartQuantity, totalPrice } = useToyStore();
+  const navigate = useNavigate();
 
   return (
     <div className="cart-container">
@@ -45,7 +47,7 @@ const Cart = () => {
             ))}
             <section className="total-price">
               <p>Totalt pris:{totalPrice}</p>
-              <button className="checkout-button">Betala</button>
+              <button className="checkout-button" onClick={() => navigate('/pay')}>Betala</button>
             </section>
           </div>
         )}

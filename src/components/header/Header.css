@@ -5,13 +5,10 @@
     justify-content: center;
     align-items: center;
 
-}
-nav a {
-    color: var(--textColor);
-    font-size: 20px;
-    padding: 2px 5px;
-    border: 1px solid var(--textColor);
-    border-radius: 4px;
+    a {
+        width: 30%;
+        color: var(--textColor);
+    }
 }
 .logo {
     width: 50%;   
@@ -26,21 +23,22 @@ nav a {
     min-width: 100px;
     justify-content: space-between;
 }
-.cart-bagde{
-    color: rgb(245, 242, 242);
-    padding: 2px 5px;
-    font-size: 12px;
-    border: 1px solid rgb(245, 242, 242);
-}
 
-.product-heading{
+.navbar{
+
+    .heading {
+        width:auto;
         color: var(--textColor);
         font-size: 20px;
         padding: 2px 5px;
-        border: 1px solid var(--textColor);
         border-radius: 4px;
         text-decoration: none;
-    
+      
+       } 
+       a {
+        text-decoration: none;
+       
+       }
 }
 .fa-lock {
     float: right;
