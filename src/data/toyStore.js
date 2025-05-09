@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { collection, getDocs, addDoc } from 'firebase/firestore';
+import { collection, getDocs, addDoc, deleteDoc } from 'firebase/firestore';
 import { db } from './database'; // Ensure you have a Firestore instance exported from database.js
 
 const useToyStore = create((set) => ({
@@ -128,13 +128,24 @@ const useToyStore = create((set) => ({
     }
   },
 
-  removeItem: (id) => 
-    set((state) => ({
-      toyList: state.toyList.filter((toy) => toy.id !== id),
-      
-    })),
-   
+   removeItem: async (id) => {
+    try {
+      // Remove the item from Firestore
+      await deleteDoc(doc(db, 'toys', id));
+      console.log(`Item with id ${id} removed from Firestore`);
+
+      // Update the local state to reflect the change
+      set((state) => ({
+        toyList: state.toyList.filter((toy) => toy.id !== id),
+      }));
+    } catch (error) {
+      console.error('Error removing item:', error);
+    }
+  },
+
+
 }));
-  
+
+
 
 export { useToyStore };

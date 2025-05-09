@@ -9,6 +9,7 @@ import { db } from '../../data/database';
 
 const Toys = () => {
   const { isLoggedIn, toyList, addToCart, isEditing, editToy, setToys, setEditing, handleEditClick, handleSaveClick, handleInputChange, handleSortChange, removeItem } = useToyStore();
+  
   const navigate = useNavigate();
 
   useEffect(() => {
