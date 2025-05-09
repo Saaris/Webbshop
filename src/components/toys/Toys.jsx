@@ -101,7 +101,7 @@ const Toys = () => {
                   <p className="heading">{t.name}</p>
                   {t.image && <img src={t.image} alt={t.name} className="img-container" />}
                   <p>{t.description}</p>
-                  <p>Pris: {t.price}</p>
+                  <p>Pris: {t.price} SEK</p>
                   {!isLoggedIn && (
                     <button onClick={() => addToCart(t)} className="add-toy-button">
                       Lägg till

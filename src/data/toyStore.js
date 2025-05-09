@@ -1,10 +1,15 @@
 import { create } from 'zustand';
-import { collection, getDocs, addDoc, deleteDoc } from 'firebase/firestore';
+import { collection, getDocs, addDoc, deleteDoc, doc } from 'firebase/firestore';
 import { db } from './database'; // Ensure you have a Firestore instance exported from database.js
 
 const useToyStore = create((set) => ({
   isLoggedIn: false,
-  setIsLoggedIn: (status) => set({ isLoggedIn: status }),
+  setIsLoggedIn: (status) => {
+  set({ isLoggedIn: status });
+  if (!status) {
+    console.log("Admin is not logged in");
+  }
+},
   
   cart: [],
   toyList: [],
@@ -45,7 +50,7 @@ const useToyStore = create((set) => ({
         totalPrice: newTotalPrice,
       };
     }),
-     clearCart: () => set({ cart: [] }),
+     clearCart: () => set({ cart: [],toyCount: 0, totalPrice: 0 }),
 
      
   updateCartQuantity: (id, change) =>
