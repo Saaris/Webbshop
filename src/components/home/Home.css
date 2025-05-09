@@ -1,37 +1,71 @@
-.img-info-container {
+.home-page {
+  padding: 40px 20px;
+  background-color: #fffdf8;
+  font-family: 'Segoe UI', 'Poppins', sans-serif;
+  color: #333;
+}
+.image-section {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.img-info-container {
+   display: flex;
   flex-wrap: wrap;
-
-  p {
-    margin: 0;
-    font-size: 16px;
-  }
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  background-color: #fff3e6;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease-in-out;
 }
 
-.beach-img, .garden-img {
-    width: 50%;
+.img-info-container:hover {
+  transform: scale(1.01);
 }
-.pool-img {
-    width: 50%;
+
+.img-info-container img {
+  flex: 1 1 300px;
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.img-info-container p {
+  flex: 1 1 300px;
+  font-size: 17px;
+  line-height: 1.6;
+  padding: 10px;
+  color: #444;
 }
 .shop-button {
-  position: absolute;
-  bottom: 50px;
-  left: 150px;
-  padding: 10px 20px;
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 24px;
+  background-color: #9acbcb; 
+  color: white;
+  font-weight: 600;
   border: none;
-  cursor: pointer; 
-  background-color: #ffffff;
-  color: rgb(8, 8, 8);
-  border-radius: 5px;
-  font-size: 20px;
-  transition: background-color 0.3s ease;
-  margin-top: 10px;
-  border: 1px solid #272727;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(255, 159, 28, 0.3);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+
 }
+
 .shop-button:hover {
-  background-color: #e7e7e7;
+  background-color: #91bebe;
+  transform: scale(1.05);
+}
 
 
 

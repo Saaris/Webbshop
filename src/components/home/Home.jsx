@@ -11,7 +11,7 @@ import beachtoys from '../../assets/beachtoys.jpg'
                <div className="img-info-container">
                 
                  <img src={imgHomepage} alt="Garden Toys" className="garden-img" />
-                 <p>Följ med på äventyr med våra livfulla leksaker! Idealiska för små upptäckare som älskar att skapa fantastiska sandslott och utforska sin fantasi!</p>
+                 <p>Följ med på äventyr med våra livfulla leksaker! Passar perfekt för små upptäckare som älskar att skapa, bygga och utforska sin fantasi!</p>
                 
                  <NavLink to="/toys">
                  <button className="shop-button">Se våra leksaker</button>
@@ -20,7 +20,7 @@ import beachtoys from '../../assets/beachtoys.jpg'
                 
                  <div className="img-info-container">
                   <img src={beachtoys} alt="beach toys" className="pool-img" />
-                 <p>Skvätta runt med våra färgglada strandleksaker perfekt för soliga dagar.</p>
+                 <p>Plaska med våra färgglada strandleksaker perfekt för soliga dagar.</p>
              </div>
          </div>
          </div>

@@ -1,45 +1,51 @@
 .header {
-    background-color: var(--headerBGcolor);
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-
-    a {
-        width: 30%;
-        color: var(--textColor);
-    }
+    padding: 10px 20px;
+    background-color: var(--headerBGcolor);
 }
 .logo {
-    width: 50%;   
-
+    width: 30%;
 }
+
 .navbar {
     display: flex;
     align-items: center;
-    font-weight: bold;
     gap: 20px;
-    max-width: 400px;
-    min-width: 100px;
-    justify-content: space-between;
+    font-size: 22px;
 }
 
-.navbar{
-
-    .heading {
-        width:auto;
-        color: var(--textColor);
-        font-size: 20px;
-        padding: 2px 5px;
-        border-radius: 4px;
-        text-decoration: none;
-      
-       } 
-       a {
-        text-decoration: none;
-       
-       }
+.heading {
+    text-decoration: none;
+    color: var(--textColor);
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
-.fa-lock {
-    float: right;
+
+.heading:hover {
+    color: #1f2020;
+    transform: translateY(-2px);
+}
+
+.cart-link {
+    position: relative;
+    text-decoration: none;
+    color: var(--textColor);
+    font-size: 24px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.cart-link:hover {
+    color: #1f2020;
+    transform: scale(1.1); 
+}
+
+.cart-badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
 }

@@ -7,8 +7,6 @@ import { useToyStore } from '../../data/toyStore.js'
 
 
 
-
-
 const Header = () => {
 
     const { toyCount } = useToyStore();
@@ -20,7 +18,7 @@ const Header = () => {
          
           <nav className='navbar'>
             <NavLink to="/toys" className='heading'>Produkter</NavLink>
-            <NavLink to="/cart">
+            <NavLink to="/cart" className='cart-link'>
             <FontAwesomeIcon icon={faCartShopping} />
              {toyCount > 0 && <span className="cart-badge">{toyCount}</span>}
              
