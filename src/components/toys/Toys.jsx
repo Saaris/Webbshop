@@ -8,7 +8,7 @@ import { db } from '../../data/database';
 
 
 const Toys = () => {
-  const { isLoggedIn, toyList, addToCart, isEditing, editToy, setToys, setEditing, handleEditClick, handleSaveClick, handleInputChange, handleSortChange } = useToyStore();
+  const { isLoggedIn, toyList, addToCart, isEditing, editToy, setToys, setEditing, handleEditClick, handleSaveClick, handleInputChange, handleSortChange, removeItem } = useToyStore();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -107,9 +107,15 @@ const Toys = () => {
                     </button>
                   )}
                   {isLoggedIn && (
+                    <div className='edit-remove-button'>
                     <button onClick={() => handleEditClick(t)} className="edit-toy-button">
                       Redigera
                     </button>
+                    <button onClick={() => removeItem(t.id)} className="remove-toy-button">
+                      Ta bort
+                    </button>
+                    </div>
+
                   )}
                 </>
               )}

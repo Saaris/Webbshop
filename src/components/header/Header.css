@@ -3,7 +3,7 @@
     justify-content: space-around;
     align-items: center;
     padding: 10px 20px;
-    background-color: var(--headerBGcolor);
+    background-color: var(--headerFooterBGColor);
 }
 .logo {
     width: 30%;
@@ -43,9 +43,9 @@
 
 .cart-badge {
     position: absolute;
-    top: -10px;
+    top: -12px;
     right: -10px;
     border-radius: 50%;
     padding: 2px 6px;
-    font-size: 12px;
+    font-size: 14px;
 }

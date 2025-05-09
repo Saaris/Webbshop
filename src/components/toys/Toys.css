@@ -83,11 +83,12 @@
     margin-right: 10px;
     
 }
-.add-item-button, .edit-toy-button {
+.add-item-button, .edit-toy-button,
+.remove-toy-button {
     border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
-    padding: 5px 10px;
+    padding: 4px 8px;
     transition: background-color 0.3s ease;
 }
 .search-section {
@@ -122,7 +123,7 @@
     padding: 10px;
     margin: 10px 0;
     width: 100%;
-    background-color: #fff3e6;
+    background-color: var(--BeigeBGColor);
     border-radius: 20px;
 }
 .edit-toy-form {
@@ -154,4 +155,8 @@
     font-size: 16px;
     padding: 4px;
     height: 60px;
+}
+.edit-remove-button {
+    display: flex;
+    gap: 10px;
 }

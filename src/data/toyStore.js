@@ -127,8 +127,14 @@ const useToyStore = create((set) => ({
       set({ error: error.message });
     }
   },
+
+  removeItem: (id) => 
+    set((state) => ({
+      toyList: state.toyList.filter((toy) => toy.id !== id),
+      
+    })),
+   
 }));
-
-
+  
 
 export { useToyStore };

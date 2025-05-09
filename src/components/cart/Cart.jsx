@@ -41,12 +41,12 @@ const Cart = () => {
                   </p>
                   
                  
-                  <p>{(item.price * item.quantity).toFixed(2)} kr</p>
+                  <p>{(item.price * item.quantity).toFixed(2)} SEK</p>
                 </div>
               </li>
             ))}
             <section className="total-price">
-              <p>Totalt pris:{totalPrice}</p>
+              <p>Totalt pris: {totalPrice} SEK</p>
               <button className="checkout-button" onClick={() => navigate('/pay')}>Betala</button>
             </section>
           </div>
