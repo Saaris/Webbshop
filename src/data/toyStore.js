@@ -45,7 +45,9 @@ const useToyStore = create((set) => ({
         totalPrice: newTotalPrice,
       };
     }),
+     clearCart: () => set({ cart: [] }),
 
+     
   updateCartQuantity: (id, change) =>
     set((state) => {
       const newCart = state.cart

@@ -5,8 +5,13 @@ import { faCirclePlus, faCircleMinus } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router';
 
 const Cart = () => {
-  const { cart, updateCartQuantity, totalPrice } = useToyStore();
+  const { cart, clearCart, updateCartQuantity, totalPrice } = useToyStore();
   const navigate = useNavigate();
+
+   const handleCheckout = () => {
+    clearCart(); 
+    navigate('/pay')
+  };
 
   return (
     <div className="cart-container">
@@ -47,7 +52,10 @@ const Cart = () => {
             ))}
             <section className="total-price">
               <p>Totalt pris: {totalPrice} SEK</p>
-              <button className="checkout-button" onClick={() => navigate('/pay')}>Betala</button>
+              <button
+              className="checkout-button"
+              onClick={handleCheckout}>Betala 
+              </button>
             </section>
           </div>
         )}
