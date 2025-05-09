@@ -1,10 +1,10 @@
 import { useToyStore } from "../../data/toyStore.js";
 import { useEffect } from "react"; 
-import { getToys } from "../../data/getToys.js";
 import "./Toys.css";
 import { useNavigate } from "react-router";
 import { onSnapshot, collection } from 'firebase/firestore';
 import { db } from '../../data/database';
+import EditToy from "../edit/editToy.jsx";
 
 
 const Toys = () => {
@@ -18,11 +18,19 @@ const Toys = () => {
       setToys(toysData);
     });
 
-    return () => unsubscribe(); // Clean up the listener on unmount
+    return () => unsubscribe(); 
   }, [setToys]);
 
   return (
     <div className="toys-container">
+      
+      {isEditing ? (
+        <EditToy />
+      ) : (
+        <div className="toy-section">
+          {/* Din befintliga kod för att visa leksaker */}
+        </div>
+      )}
 
       <div className="search-container">
         <section className="search-section">

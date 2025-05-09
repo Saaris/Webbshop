@@ -1,6 +1,6 @@
 import { create } from 'zustand';
-import { collection, getDocs, addDoc, deleteDoc, doc } from 'firebase/firestore';
-import { db } from './database'; // Ensure you have a Firestore instance exported from database.js
+import { collection, getDocs, addDoc, deleteDoc, doc, updateDoc } from 'firebase/firestore';
+import { db } from './database'; 
 
 const useToyStore = create((set) => ({
   isLoggedIn: false,
@@ -94,14 +94,30 @@ const useToyStore = create((set) => ({
       editToy: toy,
     }),
 
-  handleSaveClick: () =>
-    set((state) => ({
+  handleSaveClick: async () => {
+  set((state) => {
+    const updatedToy = state.editToy; // Hämta den redigerade leksaken
+    const toyId = updatedToy.id;
+
+    // Uppdatera Firestore
+    const toyDocRef = doc(db, 'toys', toyId);
+    updateDoc(toyDocRef, updatedToy)
+      .then(() => {
+        console.log(`Toy with id ${toyId} successfully updated in Firestore`);
+      })
+      .catch((error) => {
+        console.error('Error updating toy in Firestore:', error);
+      });
+       return {
       toyList: state.toyList.map((toy) =>
-        toy.id === state.editToy.id ? state.editToy : toy
+        toy.id === toyId ? updatedToy : toy
       ),
       isEditing: false,
       editToy: null,
-    })),
+    };
+  });
+},
+
 
   handleInputChange: (name, value) =>
     set((state) => ({
