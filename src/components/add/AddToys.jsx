@@ -32,9 +32,13 @@ function AddToys() {
 
   return (
     <div className='add'>
+      <div className="tooltip-wrapper">
       <NavLink to="/toys"> 
         <FontAwesomeIcon icon={faArrowLeft} />
         </NavLink>
+        <span className="tooltip-text">Tillbaka till leksaker</span>
+        </div>
+        
       <AddItemForm onSubmit={handleAddItem} />
       <h2>Lägg till ny produkt</h2>
 

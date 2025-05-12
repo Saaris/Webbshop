@@ -75,4 +75,27 @@
 .name-input {
     font-size: 18px;
 }
+.tooltip-text {
+  visibility: hidden;
+  color: var(--textColor);
+  text-align: center;
+  padding: 6px 8px;
+  border-radius: 4px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; 
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  white-space: nowrap;
+}
+.tooltip-wrapper{
+    position: relative;
+    display: inline-block;
+}
+.tooltip-wrapper:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
     
