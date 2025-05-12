@@ -1,19 +1,26 @@
 import { useToyStore } from "../../data/toyStore.js";
-import { useEffect } from "react"; 
+import { useEffect, useState } from "react"; 
 import "./Toys.css";
 import { useNavigate } from "react-router";
 import { onSnapshot, collection } from 'firebase/firestore';
 import { db } from '../../data/database';
 import EditToy from "../edit/editToy.jsx";
+import { inputValidation } from '../../data/validate.js'; 
 
 
 const Toys = () => {
   const { isLoggedIn, toyList, addToCart, isEditing, editToy, setToys, setEditing, handleEditClick, handleSaveClick, handleInputChange, handleSortChange, removeItem } = useToyStore();
   
   const navigate = useNavigate();
+  
+  const [errors, setErrors] = useState({});
 
-   const [errors, setErrors] = useState({})
-   
+  useEffect(() => {
+  if (editToy) {
+    const { message } = inputValidation(editToy);
+    setErrors(message);
+  }
+}, [editToy]);
 
   useEffect(() => {
     const unsubscribe = onSnapshot(collection(db, 'toys'), (snapshot) => {
@@ -104,7 +111,7 @@ const Toys = () => {
                     onChange={(e) => handleInputChange('price', e.target.value)}
                     placeholder="Pris"
                     className="edit-price-input"/>
-                     {errors.number && <span className="error">{errors.number}</span>}
+                     {errors.price && <span className="error">{errors.price}</span>}
                   </div>
 
                   <div className="form-group-edit">
@@ -118,7 +125,8 @@ const Toys = () => {
                      {errors.image && <span className="error">{errors.image}</span>}
                   </div>
 
-                  <button onClick={handleSaveClick}>Spara</button>
+                  <button className='save-button'
+                  onClick={handleSaveClick}>Spara</button>
                 </div>
               ) : (
                 <>
