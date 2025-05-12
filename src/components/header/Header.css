@@ -19,6 +19,7 @@
 .heading {
     text-decoration: none;
     color: var(--textColor);
+    font-size: 20px;
     font-weight: bold;
     transition: color 0.3s ease, transform 0.3s ease;
 }

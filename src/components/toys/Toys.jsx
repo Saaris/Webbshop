@@ -106,7 +106,7 @@ const Toys = () => {
                 </div>
               ) : (
                 <>
-                  <p className="heading">{t.name}</p>
+                  <p className="toy-heading">{t.name}</p>
                   {t.image && <img src={t.image} alt={t.name} className="img-container" />}
                   <p>{t.description}</p>
                   <p>Pris: {t.price} SEK</p>

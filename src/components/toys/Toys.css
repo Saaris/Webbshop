@@ -32,7 +32,7 @@
     h3 {
         margin: 0;
     }
-    .heading {
+    .toy-heading {
         font-weight: bold;
     }
 
@@ -44,7 +44,7 @@
     justify-content: center;
     padding: 10px;
 }
-.heading {
+.toy-heading {
     font-size: 18px;
 }
 .toys-container {
