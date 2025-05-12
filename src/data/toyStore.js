@@ -3,7 +3,7 @@ import { collection, getDocs, addDoc, deleteDoc, doc, updateDoc } from 'firebase
 import { db } from './database'; 
 
 const useToyStore = create((set) => ({
-    isLoggedIn: JSON.parse(localStorage.getItem('isLoggedIn')) || false, // Hämta från localStorage
+     isLoggedIn: JSON.parse(localStorage.getItem('isLoggedIn')) || false, // Hämta från localStorage
   setIsLoggedIn: (status) => {
     localStorage.setItem('isLoggedIn', JSON.stringify(status)); // Spara till localStorage
     set({ isLoggedIn: status });
@@ -177,10 +177,19 @@ const useToyStore = create((set) => ({
     localStorage.setItem('isLoggedIn', JSON.stringify(true)); // Spara till localStorage
   },
 
-  handleLogout: () => {
-    setIsLoggedIn(false); // Uppdatera state
-    localStorage.removeItem('isLoggedIn'); // Ta bort från localStorage
-  },
+  // handleLogout: () => {
+  //   setIsLoggedIn(false); // Uppdatera state
+  //   localStorage.removeItem('isLoggedIn'); // Ta bort från localStorage
+  // },
+
+  handleAdminClick: () => {
+  set((state) => {
+    if (state.isLoggedIn) {
+      localStorage.setItem('isLoggedIn', JSON.stringify(false)); // Uppdatera localStorage
+      return { isLoggedIn: false }; // Sätt isLoggedIn till false
+    }
+  });
+},
 
 }));
 

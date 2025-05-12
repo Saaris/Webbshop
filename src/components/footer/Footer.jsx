@@ -5,14 +5,12 @@ import instagram from '../../assets/instagram.png'
 import {NavLink} from 'react-router' 
 import adminIcon from '../../assets/adminIcon.png'
 import { useState } from 'react';
+import { useToyStore } from '../../data/toyStore.js'
 
-const Footer = ({ isLoggedIn, setIsLoggedIn }) => {
+const Footer = () => {
+  const { isLoggedIn, handleAdminClick } = useToyStore();
 
-    const handleAdminClick = () => {
-        if (isLoggedIn) {
-            setIsLoggedIn(false); //isLoggedIn till false vid utloggning
-        }
-    };
+
 
     return (
             <div className="footer-content">
@@ -23,7 +21,7 @@ const Footer = ({ isLoggedIn, setIsLoggedIn }) => {
                         alt="admin icon"
                         className='admin-icon'
                         title={isLoggedIn ? "logga ut" : "logga in"}
-                        onClick={handleAdminClick} // Lägg till onClick-händelse
+                        onClick={handleAdminClick} 
                     />
                  </NavLink>
                 </div>

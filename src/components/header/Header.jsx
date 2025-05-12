@@ -9,22 +9,28 @@ import { useToyStore } from '../../data/toyStore.js'
 
 const Header = () => {
 
-    const { toyCount } = useToyStore();
+    const { toyCount, isLoggedIn } = useToyStore();
     
 
-    return (
-        <div className='header'>
-         <NavLink to="/"><img src={Logo} className='logo'/></NavLink>
+  return (
+    <div className='header'>
+    
+      <NavLink to="/"><img src={Logo} className='logo'/></NavLink>
          
-          <nav className='navbar'>
-            <NavLink to="/toys" className='heading'>Produkter</NavLink>
-            <NavLink to="/cart" className='cart-link'>
-            <FontAwesomeIcon icon={faCartShopping} />
-             {toyCount > 0 && <span className="cart-badge">{toyCount}</span>}
-             
-            </NavLink>
-          </nav>
-        </div>
+        <nav className='navbar'>
+          {isLoggedIn && <p className="admin-heading">Admin</p>}
+
+          {!isLoggedIn && (
+            <>
+              <NavLink to="/toys" className='heading'>Produkter</NavLink>
+              <NavLink to="/cart" className='cart-link'>
+              <FontAwesomeIcon icon={faCartShopping} />
+              {toyCount > 0 && <span className="cart-badge">{toyCount}</span>}
+              </NavLink>
+            </>
+          )}
+        </nav>
+    </div>
 
 )}
 export default Header

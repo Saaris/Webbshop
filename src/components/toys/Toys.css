@@ -84,7 +84,7 @@
     
 }
 .add-item-button, .edit-toy-button,
-.remove-toy-button {
+.remove-toy-button, .logout-button {
     border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
@@ -160,4 +160,7 @@
 .edit-remove-button {
     display: flex;
     gap: 10px;
+}
+.admin-heading{
+    text-align: center;
 }

@@ -9,7 +9,7 @@ import EditToy from "../edit/editToy.jsx";
 const Toys = () => {
   const {
     isLoggedIn, toyList, addToCart, isEditing, editToy, setToys, setEditing,
-    handleEditClick, removeItem, handleSortChange} = useToyStore();
+    handleEditClick, removeItem, handleSortChange, handleAdminClick} = useToyStore();
 
   const navigate = useNavigate();
 
@@ -28,7 +28,7 @@ const Toys = () => {
         <EditToy />
       ) : (
         <div className="toy-section">
-          {/* You can optionally move static content here */}
+          
         </div>
       )}
 
@@ -56,6 +56,9 @@ const Toys = () => {
           >
             Lägg till produkt
           </button>
+          <button className="logout-button" onClick={handleAdminClick}>
+              Logga ut
+            </button>
         </div>
       )}
 
