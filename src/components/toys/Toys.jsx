@@ -12,6 +12,9 @@ const Toys = () => {
   
   const navigate = useNavigate();
 
+   const [errors, setErrors] = useState({})
+   
+
   useEffect(() => {
     const unsubscribe = onSnapshot(collection(db, 'toys'), (snapshot) => {
       const toysData = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
