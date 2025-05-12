@@ -21,6 +21,7 @@ const useToyStore = create((set) => ({
   toyList: [],
   toyCount: 0, 
   totalprice: 0,
+  filteredToys: [],
 
   isEditing: false,
   editToy: null,
@@ -172,7 +173,7 @@ const useToyStore = create((set) => ({
     }
   },
 
-  handleLogin: () => {
+    handleLogin: () => {
     setIsLoggedIn(true); // Uppdatera state
     localStorage.setItem('isLoggedIn', JSON.stringify(true)); // Spara till localStorage
   },
@@ -182,6 +183,8 @@ const useToyStore = create((set) => ({
     set({ isLoggedIn: false }); // Uppdatera state
     console.log('Admin logged out');
   },
+
+
 
 }));
 

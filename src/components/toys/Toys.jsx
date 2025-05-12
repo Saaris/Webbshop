@@ -5,6 +5,8 @@ import { useNavigate } from "react-router";
 import { onSnapshot, collection } from 'firebase/firestore';
 import { db } from '../../data/database';
 import EditToy from "../edit/editToy.jsx";
+import Search from "../search/Search.jsx";
+
 
 const Toys = () => {
   const {
@@ -24,6 +26,7 @@ const Toys = () => {
 
   return (
     <div className="toys-container">
+      
       {isEditing ? (
         <EditToy />
       ) : (
@@ -31,7 +34,8 @@ const Toys = () => {
           
         </div>
       )}
-
+      
+      
       <div className="search-container">
         <section className="search-section">
           <input type="text" placeholder="Sök leksak..." className="search-bar" />

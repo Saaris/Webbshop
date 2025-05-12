@@ -18,7 +18,7 @@ const Cart = () => {
       <p className="cart-info">Detta är din varukorg</p>
       <div className="cart-page">
         {cart.length === 0 ? (
-          <p>Din varukorg är tom</p>
+          <p>Din varukorg är tom. Klicka på produkter för att se vårt sortiment.</p>
         ) : (
           <div className="cart-list">
             {cart.map((item) => (
