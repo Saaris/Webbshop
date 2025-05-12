@@ -68,40 +68,53 @@ const Toys = () => {
           toyList.map((t) => (
             <div key={t.id} className="toy-card">
               {isEditing && editToy?.id === t.id ? (
+    
                 <div className="edit-toy-form">
+                  <div className="form-group-edit">
                   <input
                     type="text"
                     name="name"
                     value={editToy?.name || ''}
                     onChange={(e) => handleInputChange('name', e.target.value)}
                     placeholder="Namn"
-                    className="edit-input"
-                    
-                  />
+                    className="edit-input" />
+
+                   {errors.name && <span className="error">{errors.name}</span>}
+                  </div>
+
+                  <div className="form-group-edit">
                   <input
                     type="text"
                     name="description"
                     value={editToy?.description || ''}
                     onChange={(e) => handleInputChange('description', e.target.value)}
                     placeholder="Beskrivning"
-                    className="edit-input"
-                  />
+                    className="edit-input"/>
+                      {errors.description && <span className="error">{errors.description}</span>}
+                  </div>
+
+                  <div className="form-group-edit">
                   <input
                     type="number"
                     name="price"
                     value={editToy?.price || ''}
                     onChange={(e) => handleInputChange('price', e.target.value)}
                     placeholder="Pris"
-                    className="edit-price-input"
-                  />
+                    className="edit-price-input"/>
+                     {errors.number && <span className="error">{errors.number}</span>}
+                  </div>
+
+                  <div className="form-group-edit">
                   <input
                     type="text"
                     name="image"
                     value={editToy?.image || ''}
                     onChange={(e) => handleInputChange('image', e.target.value)}
                     placeholder="Bild URL"
-                    className="edit-img-input"
-                  />
+                    className="edit-img-input" />
+                     {errors.image && <span className="error">{errors.image}</span>}
+                  </div>
+
                   <button onClick={handleSaveClick}>Spara</button>
                 </div>
               ) : (

@@ -162,7 +162,7 @@ const useToyStore = create((set) => ({
         toyList: state.toyList.filter((toy) => toy.id !== id),
       }));
     } catch (error) {
-      console.error('Error removing item:', error);
+      console.error('Error, could not remove item:', error);
     }
   },
 

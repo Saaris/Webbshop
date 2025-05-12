@@ -22,8 +22,8 @@ const Login = () => {
     const validationResult = inputValidation({ [name]: value });
 
     // Update error messages
-    setErrorMessage((prev) => ({
-      ...prev,
+    setErrorMessage((currentErrors) => ({
+      ...currentErrors,
       [name]: validationResult.message[name]
     }));
   };
