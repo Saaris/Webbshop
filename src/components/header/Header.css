@@ -25,7 +25,7 @@
 
 .heading:hover {
     color: #1f2020;
-    transform: translateY(-2px);
+    transform: scale(1.1); 
 }
 
 .cart-link {
