@@ -1,4 +1,5 @@
 import { NavLink, Outlet } from 'react-router'
+import { useEffect } from 'react'
 import './App.css'
 import Header from './components/header/Header.jsx'
 import Footer from './components/footer/Footer.jsx'
@@ -6,6 +7,13 @@ import { useToyStore } from './data/toyStore.js'
 
 function App() {
   const { isLoggedIn, setIsLoggedIn } = useToyStore()
+
+  useEffect(() => {
+  const storedIsLoggedIn = JSON.parse(localStorage.getItem('isLoggedIn'));
+  if (storedIsLoggedIn) {
+    setIsLoggedIn(storedIsLoggedIn);
+  }
+}, []);
 
   return (
     <div className="App">
