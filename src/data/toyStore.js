@@ -183,15 +183,6 @@ const useToyStore = create((set) => ({
     console.log('Admin logged out');
   },
 
-  // handleAdminClick: () => {
-  // set((state) => {
-  //   if (state.isLoggedIn) {
-  //     localStorage.setItem('isLoggedIn', JSON.stringify(false)); // Uppdatera localStorage
-  //     return { isLoggedIn: false }; // Sätt isLoggedIn till false
-  //   }
-  // });
-// },
-
 }));
 
 
