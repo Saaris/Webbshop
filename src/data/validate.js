@@ -48,31 +48,34 @@ const validateSchema = Joi.object({
 });
 
 function inputValidation(touchedInput) {
+  // Exkludera "id" från valideringen
+  const { id, ...dataToValidate } = touchedInput;
   let message = {};
 
-  const results = validateSchema.validate(touchedInput, { abortEarly: false });
+  const results = validateSchema.validate(dataToValidate, { abortEarly: false });
+  console.log('Validation Results:', results);
 
   if (results.error) {
     results.error.details.forEach((e) => {
       const key = e.context.key;
 
       const regex = /^[a-zA-Z0-9 åäöÅÄÖ]*$/;
+      console.log('Validation Errors:', message);
 
-
-      //login input
+      //validerings fel
       if (key === 'username') {
         message[key] = 'Användarnamnet är inte korrekt. Försök igen.';
       } else if (key === 'password') {
         message[key] = 'Lösenordet är felaktigt. Kontrollera och försök igen.';
 
-        //addItem inputs
+        //EditToy /addItem inputs
       } else if (key === 'price') {
         message[key] = 'Priset måste vara ett positivt nummer.';
 
       } else if (key === 'name') {
-        if (!regex.test(touchedInput.name)) {
+        if (!regex.test(dataToValidate.name)) {
           message[key] = 'Endast (a-z, åäö,.) och mellanslag är tillåtna.';
-        } else if (touchedInput.name.length < 3 || touchedInput.name.length > 30) {
+        } else if (dataToValidate.name.length < 3 || dataToValidate.name.length > 30) {
           message[key] = 'Namnet måste vara mellan 3 och 30 tecken.';
         }
       } else if (key === 'image') {
@@ -80,14 +83,15 @@ function inputValidation(touchedInput) {
 
       } else if (key === 'description') {
         message[key] = 'Kategorin måste vara mellan 3 och 30 tecken.';
-        if (!regex.test(touchedInput.description)) {
+        if (!regex.test(dataToValidate.description)) {
           message[key] = 'Endast (a-z, åäö,.) och mellanslag är tillåtna.';
         }
           else if (touchedInput.description.length < 3 || touchedInput.description.length > 70) {
             message[key] = 'Beskrivning måste vara mellan 5 och 70 tecken.';
       }
       } else if (key === 'category') {
-        message[key] = 'Kategori måste vara poolleksak, trädgårdsleksak eller strandleksak".'; }
+        message[key] = 'Kategori måste vara poolleksak, trädgårdsleksak eller strandleksak".'; 
+      }
     });
   }
 

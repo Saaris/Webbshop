@@ -1,26 +1,17 @@
 import { useToyStore } from "../../data/toyStore.js";
-import { useEffect, useState } from "react"; 
+import { useEffect } from "react";
 import "./Toys.css";
 import { useNavigate } from "react-router";
 import { onSnapshot, collection } from 'firebase/firestore';
 import { db } from '../../data/database';
 import EditToy from "../edit/editToy.jsx";
-import { inputValidation } from '../../data/validate.js'; 
-
 
 const Toys = () => {
-  const { isLoggedIn, toyList, addToCart, isEditing, editToy, setToys, setEditing, handleEditClick, handleSaveClick, handleInputChange, handleSortChange, removeItem } = useToyStore();
-  
-  const navigate = useNavigate();
-  
-  const [errors, setErrors] = useState({});
+  const {
+    isLoggedIn, toyList, addToCart, isEditing, editToy, setToys, setEditing,
+    handleEditClick, removeItem, handleSortChange} = useToyStore();
 
-  useEffect(() => {
-  if (editToy) {
-    const { message } = inputValidation(editToy);
-    setErrors(message);
-  }
-}, [editToy]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const unsubscribe = onSnapshot(collection(db, 'toys'), (snapshot) => {
@@ -28,17 +19,16 @@ const Toys = () => {
       setToys(toysData);
     });
 
-    return () => unsubscribe(); 
+    return () => unsubscribe();
   }, [setToys]);
 
   return (
     <div className="toys-container">
-      
       {isEditing ? (
         <EditToy />
       ) : (
         <div className="toy-section">
-          {/* Din befintliga kod för att visa leksaker */}
+          {/* You can optionally move static content here */}
         </div>
       )}
 
@@ -46,18 +36,16 @@ const Toys = () => {
         <section className="search-section">
           <input type="text" placeholder="Sök leksak..." className="search-bar" />
           <button className="search-button">Sök</button>
-          </section>
+        </section>
 
-
-          <div className="sort-section">
-            <label htmlFor="sort">Sortera:</label>
-            <select id="sort" className="sort-dropdown" onChange={handleSortChange}>
-              <option value="name">Namn</option>
-              <option value="price-asc">Lägst till högst pris</option>
-              <option value="price-desc">Högst till lägst pris</option>
-             
-            </select>
-          </div>
+        <div className="sort-section">
+          <label htmlFor="sort">Sortera:</label>
+          <select id="sort" className="sort-dropdown" onChange={handleSortChange}>
+            <option value="name">Namn</option>
+            <option value="price-asc">Lägst till högst pris</option>
+            <option value="price-desc">Högst till lägst pris</option>
+          </select>
+        </div>
       </div>
 
       {isLoggedIn && (
@@ -78,77 +66,29 @@ const Toys = () => {
           toyList.map((t) => (
             <div key={t.id} className="toy-card">
               {isEditing && editToy?.id === t.id ? (
-    
-                <div className="edit-toy-form">
-                  <div className="form-group-edit">
-                  <input
-                    type="text"
-                    name="name"
-                    value={editToy?.name || ''}
-                    onChange={(e) => handleInputChange('name', e.target.value)}
-                    placeholder="Namn"
-                    className="edit-input" />
-
-                   {errors.name && <span className="error">{errors.name}</span>}
-                  </div>
-
-                  <div className="form-group-edit">
-                  <input
-                    type="text"
-                    name="description"
-                    value={editToy?.description || ''}
-                    onChange={(e) => handleInputChange('description', e.target.value)}
-                    placeholder="Beskrivning"
-                    className="edit-input"/>
-                      {errors.description && <span className="error">{errors.description}</span>}
-                  </div>
-
-                  <div className="form-group-edit">
-                  <input
-                    type="number"
-                    name="price"
-                    value={editToy?.price || ''}
-                    onChange={(e) => handleInputChange('price', e.target.value)}
-                    placeholder="Pris"
-                    className="edit-price-input"/>
-                     {errors.price && <span className="error">{errors.price}</span>}
-                  </div>
-
-                  <div className="form-group-edit">
-                  <input
-                    type="text"
-                    name="image"
-                    value={editToy?.image || ''}
-                    onChange={(e) => handleInputChange('image', e.target.value)}
-                    placeholder="Bild URL"
-                    className="edit-img-input" />
-                     {errors.image && <span className="error">{errors.image}</span>}
-                  </div>
-
-                  <button className='save-button'
-                  onClick={handleSaveClick}>Spara</button>
-                </div>
+                <EditToy />
               ) : (
                 <>
                   <p className="toy-heading">{t.name}</p>
                   {t.image && <img src={t.image} alt={t.name} className="img-container" />}
                   <p>{t.description}</p>
                   <p>Pris: {t.price} SEK</p>
+
                   {!isLoggedIn && (
                     <button onClick={() => addToCart(t)} className="add-toy-button">
                       Lägg till
                     </button>
                   )}
+
                   {isLoggedIn && (
                     <div className='edit-remove-button'>
-                    <button onClick={() => handleEditClick(t)} className="edit-toy-button">
-                      Redigera
-                    </button>
-                    <button onClick={() => removeItem(t.id)} className="remove-toy-button">
-                      Ta bort
-                    </button>
+                      <button onClick={() => handleEditClick(t)} className="edit-toy-button">
+                        Redigera
+                      </button>
+                      <button onClick={() => removeItem(t.id)} className="remove-toy-button">
+                        Ta bort
+                      </button>
                     </div>
-
                   )}
                 </>
               )}
