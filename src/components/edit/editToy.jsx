@@ -6,7 +6,8 @@ const EditToy = () => {
   const { editToy, handleInputChange, handleSaveClick } = useToyStore();
 
   const [errors, setErrors] = useState({});
-
+  
+//"live" validering
     useEffect(() => {
     if (editToy) {
       const { message } = inputValidation(editToy);

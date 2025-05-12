@@ -6,10 +6,11 @@ import { useNavigate } from 'react-router';
 
 const Cart = () => {
   const { cart, clearCart, updateCartQuantity, totalPrice } = useToyStore();
+
   const navigate = useNavigate();
 
    const handleCheckout = () => {
-    clearCart(); 
+    clearCart();
     navigate('/pay')
   };
 
@@ -31,21 +32,21 @@ const Cart = () => {
                 <div className="price-button-box">
                 <p>
                     <FontAwesomeIcon
-                      onClick={() => updateCartQuantity(item.id, -1)} 
+                      onClick={() => updateCartQuantity(item.id, -1)}
                       icon={faCircleMinus}
                       className="icon-button"
                     />
                   </p>
-                  <p>{item.quantity} st</p> 
+                  <p>{item.quantity} st</p>
                   <p>
                     <FontAwesomeIcon
-                      onClick={() => updateCartQuantity(item.id, 1)} 
+                      onClick={() => updateCartQuantity(item.id, 1)}
                       icon={faCirclePlus}
                       className="icon-button"
                     />
                   </p>
-                  
-                 
+
+                 {/* fasta decimaler */}
                   <p>{(item.price * item.quantity).toFixed(2)} SEK</p>
                 </div>
               </li>
@@ -54,7 +55,7 @@ const Cart = () => {
               <p>Totalt pris: {totalPrice} SEK</p>
               <button
               className="checkout-button"
-              onClick={handleCheckout}>Betala 
+              onClick={handleCheckout}>Betala
               </button>
             </section>
           </div>

@@ -8,14 +8,7 @@ const useToyStore = create((set) => ({
     localStorage.setItem('isLoggedIn', JSON.stringify(status)); // Spara till localStorage
     set({ isLoggedIn: status });
   },
-  
-//   isLoggedIn: false,
-//   setIsLoggedIn: (status) => {
-//   set({ isLoggedIn: status });
-//   if (!status) {
-//     console.log("Admin is not logged in");
-//   }
-// },
+
   
   cart: [],
   toyList: [],
@@ -75,12 +68,12 @@ const useToyStore = create((set) => ({
         0
       );
 
-      const newToyCount = newCart.reduce((sum, item) => sum + item.quantity, 0); // Calculate total toy count
+      const newToyCount = newCart.reduce((sum, item) => sum + item.quantity, 0); // total ToyCount
   
       return {
         cart: newCart,
         totalPrice: newTotalPrice,
-        toyCount: newToyCount, // Update toyCount
+        toyCount: newToyCount, 
       };
     }),
 
@@ -160,11 +153,11 @@ const useToyStore = create((set) => ({
 
    removeItem: async (id) => {
     try {
-      // Remove the item from Firestore
+      // ta bort leksak från firestore
       await deleteDoc(doc(db, 'toys', id));
       console.log(`Item with id ${id} removed from Firestore`);
 
-      // Update the local state to reflect the change
+      // Uppdat lokal state
       set((state) => ({
         toyList: state.toyList.filter((toy) => toy.id !== id),
       }));

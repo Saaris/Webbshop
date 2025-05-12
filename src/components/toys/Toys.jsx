@@ -1,5 +1,5 @@
 import { useToyStore } from "../../data/toyStore.js";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./Toys.css";
 import { useNavigate } from "react-router";
 import { onSnapshot, collection } from 'firebase/firestore';
@@ -15,10 +15,13 @@ const Toys = () => {
 
   const navigate = useNavigate();
 
+     const [filteredToys, setFilteredToys] = useState(toyList); // För filtrerade leksaker
+
   useEffect(() => {
     const unsubscribe = onSnapshot(collection(db, 'toys'), (snapshot) => {
       const toysData = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
       setToys(toysData);
+      setFilteredToys(toysData);
     });
 
     return () => unsubscribe();
@@ -30,27 +33,15 @@ const Toys = () => {
       {isEditing ? (
         <EditToy />
       ) : (
-        <div className="toy-section">
-          
+        <div className="search-toy-section">
+          <Search
+            toyList={toyList}
+            setFilteredToys={setFilteredToys}
+            handleSortChange={handleSortChange}
+          />
         </div>
       )}
       
-      
-      <div className="search-container">
-        <section className="search-section">
-          <input type="text" placeholder="Sök leksak..." className="search-bar" />
-          <button className="search-button">Sök</button>
-        </section>
-
-        <div className="sort-section">
-          <label htmlFor="sort">Sortera:</label>
-          <select id="sort" className="sort-dropdown" onChange={handleSortChange}>
-            <option value="name">Namn</option>
-            <option value="price-asc">Lägst till högst pris</option>
-            <option value="price-desc">Högst till lägst pris</option>
-          </select>
-        </div>
-      </div>
 
       {isLoggedIn && (
         <div className="edit-buttons-section">

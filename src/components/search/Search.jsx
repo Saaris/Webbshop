@@ -1,35 +1,47 @@
 import { useState } from 'react';
 
-const Search = ({ toyList }) => {
-    const [searchValue, setSearchValue] = useState('');
+const Search = ({ toyList, setFilteredToys, handleSortChange }) => {
+  const [searchValue, setSearchValue] = useState('');
 
-    // Funktion för att matcha "needle" mot "haystack"
-    const matchToy = (needle, haystack) => {
-        return haystack.name.toLowerCase().includes(needle.toLowerCase());
-    };
+  // Funktion för att matcha "needle" mot "haystack"
+  const matchToy = (needle, haystack) => {
+    return haystack.name.toLowerCase().includes(needle.toLowerCase());
+  };
 
-    // Filtrera leksaker baserat på söksträngen
-    const searchResults = toyList.filter(toy => matchToy(searchValue, toy));
+  // Filtrera leksaker baserat på söksträngen
+  const handleSearch = (event) => {
+    const value = event.target.value;
+    setSearchValue(value);
+    console.log('Söksträng:', value);
 
-    return (
-        <div className="search-container">
-            <input
-                type="text"
-                value={searchValue}
-                placeholder="Sök leksak..."
-                className="search-bar"
-                onChange={event => setSearchValue(event.target.value)}
-            />
-            <div className="search-results">
-                {searchResults.map(toy => (
-                    <div key={toy.id} className="toy-item">
-                        <p>{toy.name}</p>
-                        <p>{toy.description}</p>
-                    </div>
-                ))}
-            </div>
-        </div>
-    );
+   const filteredToys = toyList.filter((toy) => matchToy(value, toy));
+  setFilteredToys(filteredToys); // Uppdatera filtrerade leksaker
+  console.log('Filtrerade leksaker:', filteredToys); // Logga de filtrerade leksakerna
+  };
+
+  return (
+    <div className="search-container">
+      <section className="search-section">
+        <input
+          type="text"
+          value={searchValue}
+          placeholder="Sök leksak..."
+          className="search-bar"
+          onChange={handleSearch}
+        />
+      </section>
+
+      <div className="sort-section">
+        <label htmlFor="sort">Sortera:</label>
+        <select id="sort" className="sort-dropdown" onChange={handleSortChange}>
+          <option value="name-asc">Namn stigande</option>
+            <option value="name-desc">Namn fallande</option>
+          <option value="price-asc">Lägst till högst pris</option>
+          <option value="price-desc">Högst till lägst pris</option>
+        </select>
+      </div>
+    </div>
+  );
 };
 
 export default Search;

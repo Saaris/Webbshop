@@ -50,11 +50,11 @@ function AddItemForm({ onSubmit, updateToyList }) {
     setErrors({});
 
     try {
-      // Add the new item to Firestore
+      // lägga till ny leksak i Firestore
       await addDoc(collection(db, 'toys'), formData);
       console.log('New toy added to Firestore:', formData);
 
-      // Update the local toy list
+      // uppdatera lokal leksaklista
       if (updateToyList) {
         updateToyList(formData);
       }

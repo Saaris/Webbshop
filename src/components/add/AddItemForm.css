@@ -90,11 +90,11 @@
   transition: opacity 0.3s;
   white-space: nowrap;
 }
-.tooltip-wrapper{
+.hover-tooltip{
     position: relative;
     display: inline-block;
 }
-.tooltip-wrapper:hover .tooltip-text {
+.hover-tooltip:hover .tooltip-text {
   visibility: visible;
   opacity: 1;
 }

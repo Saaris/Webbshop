@@ -32,7 +32,7 @@ function AddToys() {
 
   return (
     <div className='add'>
-      <div className="tooltip-wrapper">
+      <div className="hover-tooltip">
       <NavLink to="/toys"> 
         <FontAwesomeIcon icon={faArrowLeft} />
         </NavLink>
