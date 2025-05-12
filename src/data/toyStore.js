@@ -9,13 +9,13 @@ const useToyStore = create((set) => ({
     set({ isLoggedIn: status });
   },
   
-  isLoggedIn: false,
-  setIsLoggedIn: (status) => {
-  set({ isLoggedIn: status });
-  if (!status) {
-    console.log("Admin is not logged in");
-  }
-},
+//   isLoggedIn: false,
+//   setIsLoggedIn: (status) => {
+//   set({ isLoggedIn: status });
+//   if (!status) {
+//     console.log("Admin is not logged in");
+//   }
+// },
   
   cart: [],
   toyList: [],
@@ -177,19 +177,20 @@ const useToyStore = create((set) => ({
     localStorage.setItem('isLoggedIn', JSON.stringify(true)); // Spara till localStorage
   },
 
-  // handleLogout: () => {
-  //   setIsLoggedIn(false); // Uppdatera state
-  //   localStorage.removeItem('isLoggedIn'); // Ta bort från localStorage
-  // },
+    handleLogout: () => {
+    localStorage.setItem('isLoggedIn', JSON.stringify(false)); // Uppdatera localStorage
+    set({ isLoggedIn: false }); // Uppdatera state
+    console.log('Admin logged out');
+  },
 
-  handleAdminClick: () => {
-  set((state) => {
-    if (state.isLoggedIn) {
-      localStorage.setItem('isLoggedIn', JSON.stringify(false)); // Uppdatera localStorage
-      return { isLoggedIn: false }; // Sätt isLoggedIn till false
-    }
-  });
-},
+  // handleAdminClick: () => {
+  // set((state) => {
+  //   if (state.isLoggedIn) {
+  //     localStorage.setItem('isLoggedIn', JSON.stringify(false)); // Uppdatera localStorage
+  //     return { isLoggedIn: false }; // Sätt isLoggedIn till false
+  //   }
+  // });
+// },
 
 }));
 

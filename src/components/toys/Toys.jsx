@@ -9,7 +9,7 @@ import EditToy from "../edit/editToy.jsx";
 const Toys = () => {
   const {
     isLoggedIn, toyList, addToCart, isEditing, editToy, setToys, setEditing,
-    handleEditClick, removeItem, handleSortChange, handleAdminClick} = useToyStore();
+    handleEditClick, removeItem, handleSortChange, handleLogout} = useToyStore();
 
   const navigate = useNavigate();
 
@@ -56,7 +56,7 @@ const Toys = () => {
           >
             Lägg till produkt
           </button>
-          <button className="logout-button" onClick={handleAdminClick}>
+          <button className="logout-button" onClick={handleLogout}>
               Logga ut
             </button>
         </div>

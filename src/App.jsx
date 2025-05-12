@@ -6,14 +6,18 @@ import Footer from './components/footer/Footer.jsx'
 import { useToyStore } from './data/toyStore.js'
 
 function App() {
+ 
   const { isLoggedIn, setIsLoggedIn } = useToyStore()
 
   useEffect(() => {
   const storedIsLoggedIn = JSON.parse(localStorage.getItem('isLoggedIn'));
+  
+  console.log('Stored isLoggedIn:', storedIsLoggedIn);
   if (storedIsLoggedIn) {
     setIsLoggedIn(storedIsLoggedIn);
+      console.log('isLoggedIn updated to:', storedIsLoggedIn);
   }
-}, []);
+}, [setIsLoggedIn]);
 
   return (
     <div className="App">

@@ -8,7 +8,7 @@ import { useState } from 'react';
 import { useToyStore } from '../../data/toyStore.js'
 
 const Footer = () => {
-  const { isLoggedIn, handleAdminClick } = useToyStore();
+  const { isLoggedIn, handleLogout } = useToyStore();
 
 
 
@@ -21,7 +21,7 @@ const Footer = () => {
                         alt="admin icon"
                         className='admin-icon'
                         title={isLoggedIn ? "logga ut" : "logga in"}
-                        onClick={handleAdminClick} 
+                        onClick={handleLogout} 
                     />
                  </NavLink>
                 </div>
