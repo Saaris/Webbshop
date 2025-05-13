@@ -39,7 +39,8 @@ const Toys = () => {
           >
             Lägg till produkt
           </button>
-          <button className="logout-button" onClick={handleLogout}>
+          <button className="logout-button" onClick={()=>{handleLogout(); navigate('/')}}
+          >
               Logga ut
             </button>
         </div>
