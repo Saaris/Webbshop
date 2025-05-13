@@ -37,6 +37,17 @@ const EditToy = () => {
       <div className="form-group-edit">
         <input
           type="text"
+          name="category"
+          value={editToy.category || ''}
+          onChange={(e) => handleInputChange('category', e.target.value)}
+          className="edit-input"
+        />
+        {errors.category && <span className="error">{errors.category}</span>}
+      </div>
+
+      <div className="form-group-edit">
+        <input
+          type="text"
           name="description"
           value={editToy.description || ''}
           onChange={(e) => handleInputChange('description', e.target.value)}

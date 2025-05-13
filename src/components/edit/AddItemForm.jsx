@@ -3,10 +3,13 @@ import './AddItemForm.css';
 import { validateSchema, inputValidation } from '../../data/validate';
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../../data/database';
+import { useToyStore } from '../../data/toyStore.js';
 
 
 // lagrar formulärets nnehåll
-function AddItemForm({ onSubmit, updateToyList }) {
+function AddItemForm({updateToyList }) {
+  const addToy = useToyStore((state) => state.addToy)
+
   const [formData, setFormData] = useState({
     name: '',
     category: '',
@@ -43,8 +46,6 @@ function AddItemForm({ onSubmit, updateToyList }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    console.log('Button clicked: Lägg till');
-
     const { message, formIsValid } = inputValidation(formData);
     if (!formIsValid) {
       setErrors(message);
@@ -53,25 +54,31 @@ function AddItemForm({ onSubmit, updateToyList }) {
 
     setErrors({});
 
-    try {
-      // lägga till ny leksak i Firestore
-      await addDoc(collection(db, 'toys'), formData);
-      console.log('New toy added to Firestore:', formData);
+    const newToy = {
+      ...formData,
+      price: Number(formData.price), // Konvertera priset till ett nummer
+    };
 
-      // uppdatera lokal leksaklista
+    try {
+     
+      await addToy(newToy);
+      console.log('New toy added:', newToy);
+
+      // Uppdatera lokal lista om funktionen skickas som prop
       if (updateToyList) {
-        updateToyList(formData);
+        updateToyList(newToy);
       }
 
+      // Återställ formuläret
       setFormData({
         name: '',
         category: '',
         description: '',
         price: '',
-        image: ''
+        image: '',
       });
     } catch (error) {
-      console.error('Error adding toy to Firestore:', error);
+      console.error('Error adding toy:', error);
     }
   };
 
@@ -141,7 +148,6 @@ function AddItemForm({ onSubmit, updateToyList }) {
       </div>
 
       <button 
-      onClick={handleSubmit}
       className='add-new-item'>Lägg till
       </button>
     </form>

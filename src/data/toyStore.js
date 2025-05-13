@@ -98,7 +98,10 @@ handleEditClick: (toy) =>
 
 handleSaveClick: async () => {
   set((state) => {
-    const updatedToy = state.editToy; // Hämta den redigerade leksaken
+     const updatedToy = {
+      ...state.editToy,
+      price: Number(state.editToy.price), // Konvertera priset till ett nummer
+    };
     const toyId = updatedToy.id;
     
     // Uppdatera Firestore
@@ -146,8 +149,15 @@ fetchToys: async () => {
 
 addToy: async (newToy) => {
   try {
-    const docRef = await addDoc(collection(db, 'toys'), newToy);
-    set((state) => ({ toys: [...state.toys, { id: docRef.id, ...newToy }] }));
+    const toyWithNumberPrice = {
+      ...newToy,
+      price: Number(newToy.price), // Konvertera priset till ett nummer
+    };
+     const docRef = await addDoc(collection(db, 'toys'), toyWithNumberPrice);
+    set((state) => ({
+      toys: [...state.toys, { id: docRef.id, ...toyWithNumberPrice }],
+    }));
+    console.log('New toy added:', toyWithNumberPrice);
   } catch (error) {
     set({ error: error.message });
   }
