@@ -32,6 +32,7 @@ function AddToys() {
 
   return (
     <div className='add'>
+      <h2>Lägg till ny produkt</h2>
       <div className="hover-tooltip">
       <NavLink to="/toys"> 
         <FontAwesomeIcon icon={faArrowLeft} />
@@ -40,7 +41,7 @@ function AddToys() {
         </div>
         
       <AddItemForm onSubmit={handleAddItem} />
-      <h2>Lägg till ny produkt</h2>
+      
 
     </div>
   );

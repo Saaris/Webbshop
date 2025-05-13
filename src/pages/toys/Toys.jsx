@@ -4,8 +4,8 @@ import "./Toys.css";
 import { useNavigate } from "react-router";
 import { onSnapshot, collection } from 'firebase/firestore';
 import { db } from '../../data/database';
-import EditToy from "../components/edit/EditToy.jsx";
-import Search from "../components/search/Search.jsx";
+import EditToy from '../../components/edit/EditToy.jsx';
+import Search from "../../components/search/Search.jsx";
 
 
 const Toys = () => {
