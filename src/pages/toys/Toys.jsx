@@ -30,7 +30,7 @@ const Toys = () => {
 
   return (
     <div className="toys-container">
-      
+      <Search />
       {isLoggedIn && (
         <div className="edit-buttons-section">
           <button
