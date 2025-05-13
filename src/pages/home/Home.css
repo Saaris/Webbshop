@@ -46,8 +46,10 @@
   line-height: 1.5;
   padding: 10px;
   color: var(--textColor);
+  font-family: 'McLaren', sans-serif;
 }
 .shop-button {
+  font-family: 'McLaren', sans-serif;
   display: inline-block;
   padding: 8px 20px;
   background-color: var(--buttonBGcolor); 

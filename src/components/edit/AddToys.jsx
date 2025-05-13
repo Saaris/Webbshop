@@ -26,9 +26,20 @@ function AddToys() {
   }, []);
 
   const handleAddItem = (itemData) => {
-    console.log('New item added:', itemData);
-    setToys((prevToys) => [...prevToys, itemData]);
+  // Konvertera priset till ett nummer
+  const itemWithNumberPrice = {
+    ...itemData,
+    price: Number(itemData.price), // Konvertera priset till ett nummer
   };
+
+  console.log('New item added:', itemWithNumberPrice);
+
+  // Uppdatera state med den nya produkten
+  setToys((prevToys) => [...prevToys, itemWithNumberPrice]);
+
+  // Om du sparar till Firestore, lägg till här
+  // addDoc(collection(db, 'toys'), itemWithNumberPrice);
+};
 
   return (
     <div className='add'>

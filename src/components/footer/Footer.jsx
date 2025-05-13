@@ -14,16 +14,17 @@ const Footer = () => {
 
     return (
             <div className="footer-content">
-                <div className="tooltip-wrapper" onClick={handleLogout}>
-  <img
-    src={adminIcon}
-    alt="admin icon"
-    className="admin-icon"
-  />
-  <span className="custom-tooltip">
-    {isLoggedIn ? "logga ut" : "logga in"}
-  </span>
-</div>
+                <div className='admin-icon-container'>
+                 <NavLink to="/login">
+                    <img
+                        src={adminIcon}
+                        alt="admin icon"
+                        className='admin-icon'
+                        title={isLoggedIn ? "logga ut" : "logga in"}
+                        onClick={handleLogout} 
+                    />
+                 </NavLink>
+                </div>
 
                 <p>&copy; 2023 MyToys Aktiebolag</p>
                 <p>mystoys@outlook.com</p>

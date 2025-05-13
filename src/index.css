@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=McLaren&display=swap');
+
 :root {
     --boxShadow: 0 6px 12px rgba(0, 0, 0, 0.06);
     --buttonBGcolor: #9acbcb;
@@ -6,7 +8,6 @@
     --textColor: rgb(19, 19, 20);
     --whiteColor: rgb(245, 242, 242);
    
-  font-family: 'gill-sans', sans-serif;
   line-height: 1.5;
   font-weight: 400;
   font-synthesis: none;
@@ -16,4 +17,8 @@
 }
 * {
   box-sizing: border-box;
+}
+
+body {
+  font-family: 'McLaren', sans-serif;
 }

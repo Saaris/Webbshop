@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+
 const Search = ({ toyList, setFilteredToys, handleSortChange }) => {
   const [searchValue, setSearchValue] = useState('');
 
@@ -33,7 +34,7 @@ const Search = ({ toyList, setFilteredToys, handleSortChange }) => {
 
       <div className="sort-section">
         <label htmlFor="sort">Sortera:</label>
-        <select id="sort" className="sort-dropdown" onChange={handleSortChange}>
+        <select className="sort-dropdown" onChange={handleSortChange}>
           <option value="name-asc">Namn stigande</option>
             <option value="name-desc">Namn fallande</option>
           <option value="price-asc">Lägst till högst pris</option>
