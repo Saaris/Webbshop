@@ -86,3 +86,11 @@ img {
 .checkout-button:hover {
     background-color: #c5d5d5;
 }
+.cart-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    padding: 2em 0;
+}

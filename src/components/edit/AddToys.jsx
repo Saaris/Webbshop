@@ -37,7 +37,7 @@ function AddToys() {
       <NavLink to="/toys"> 
         <FontAwesomeIcon icon={faArrowLeft} />
         </NavLink>
-        <span className="tooltip-text">Tillbaka till leksaker</span>
+        <span className="tooltip-text">Tillbaka</span>
         </div>
         
       <AddItemForm onSubmit={handleAddItem} />

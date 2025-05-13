@@ -3,6 +3,7 @@ import "./Cart.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlus, faCircleMinus } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router';
+import { NavLink } from 'react-router'
 
 const Cart = () => {
   const { cart, clearCart, updateCartQuantity, totalPrice } = useToyStore();
@@ -14,12 +15,19 @@ const Cart = () => {
     navigate('/pay')
   };
 
+
   return (
     <div className="cart-container">
       <p className="cart-info">Detta är din varukorg</p>
       <div className="cart-page">
         {cart.length === 0 ? (
+          <div className="cart-empty">
           <p>Din varukorg är tom. Klicka på produkter för att se vårt sortiment.</p>
+           <NavLink to="/toys">
+              <button className="shop-button">Se våra leksaker</button>
+           </NavLink>
+          </div>
+          
         ) : (
           <div className="cart-list">
             {cart.map((item) => (
