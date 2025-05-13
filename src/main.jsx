@@ -3,12 +3,12 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import { createHashRouter, RouterProvider } from 'react-router'
-import Home from './components/home/Home.jsx'
-import Toys from './components/toys/Toys.jsx'
-import Cart from './components/cart/Cart.jsx'
-import AddToys from './components/add/AddToys.jsx'
-import Login from './components/login/Login.jsx'
-import Pay from './components/pay/Pay.jsx'
+import Home from './pages/home/Home.jsx'
+import Toys from './pages/toys/Toys.jsx'
+import Cart from './pages/cart/Cart.jsx'
+import AddToys from './components/edit/AddToys.jsx'
+import Login from './pages/login/Login.jsx'
+import Pay from './pages/pay/Pay.jsx'
 
 
 const router = createHashRouter (

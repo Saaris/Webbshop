@@ -65,9 +65,9 @@ function inputValidation(touchedInput) {
 
       //validerings fel för login
       if (key === 'username') {
-        message[key] = 'Användarnamnet är inte korrekt. Försök igen.';
+        message[key] = 'Vänligen ange ditt användarnamn.';
       } else if (key === 'password') {
-        message[key] = 'Lösenordet är felaktigt. Kontrollera och försök igen.';
+        message[key] = 'Vänligen ange ditt lösenord.';
 
         //validering för EditToy /addItem inputs
       } else if (key === 'price') {

@@ -14,14 +14,14 @@ const EditToy = () => {
       setErrors(message);
     }
   }, [editToy]);
-  console.log('Current editToy:', editToy);
+  // console.log('Current editToy:', editToy);
 
   if (!editToy) {
     return <p>Ingen leksak vald för redigering.</p>;
   }
 
    return (
-    <div className="edit-toy-form">
+    <>
       <div className="form-group-edit">
         <input
           type="text"
@@ -71,22 +71,20 @@ const EditToy = () => {
       </div>
 
       <button 
-  className='save-button'
-  onClick={() => {
-    console.log('Save button clicked'); // Kontrollera om knappen klickas
-    console.log('Current editToy:', editToy); // Kontrollera datan i editToy
-    const { formIsValid, message } = inputValidation(editToy);
-    console.log('Validation Result:', { formIsValid, message }); // Kontrollera valideringsresultatet
-    setErrors(message);
-    if (formIsValid) {
-      console.log('Form is valid, calling handleSaveClick'); // Kontrollera om valideringen lyckas
-      handleSaveClick();
+      className='save-button'
+      onClick={() => {
+        console.log('sparat');
+        console.log('nuvarande editToy:', editToy);
+        const { formIsValid, message } = inputValidation(editToy);
+        console.log('valideringsresultat:', { formIsValid, message }); 
+        setErrors(message);
+        if (formIsValid) {
+          console.log('Form är valid');
+          handleSaveClick();
     }
-  }}
->
-  Spara
-</button>
-    </div>
+  }} >Spara
+  </button>
+    </>
   );
 };
 

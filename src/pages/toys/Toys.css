@@ -84,7 +84,7 @@
     
 }
 .add-item-button, .edit-toy-button,
-.remove-toy-button, .logout-button {
+.remove-toy-button, .logout-button, .save-button {
     border-radius: 4px;
     font-size: 16px;
     cursor: pointer;

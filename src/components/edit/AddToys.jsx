@@ -11,6 +11,7 @@ import './AddItemForm.css';
 function AddToys() {
   const [toys, setToys] = useState([]);
 
+  //useEffect- hämta leksaker från Firestore från collect. toys
   useEffect(() => {
     const fetchToys = async () => {
       try {

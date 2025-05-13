@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import "./Toys.css";
 import { useNavigate } from "react-router";
 import { onSnapshot, collection } from 'firebase/firestore';
-import { db } from '../../data/database';
-import EditToy from "../edit/editToy.jsx";
-import Search from "../search/Search.jsx";
+import { db } from '../../data/database.js';
+import EditToy from "../../components/edit/EditToy.jsx";
+import Search from "../../components/search/Search.jsx";
 
 
 const Toys = () => {
@@ -17,6 +17,7 @@ const Toys = () => {
 
      const [filteredToys, setFilteredToys] = useState(toyList); // För filtrerade leksaker
 
+     // realtid ändringar
   useEffect(() => {
     const unsubscribe = onSnapshot(collection(db, 'toys'), (snapshot) => {
       const toysData = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));

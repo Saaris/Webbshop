@@ -4,6 +4,8 @@ import { validateSchema, inputValidation } from '../../data/validate';
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../../data/database';
 
+
+// lagrar formulärets nnehåll
 function AddItemForm({ onSubmit, updateToyList }) {
   const [formData, setFormData] = useState({
     name: '',
@@ -15,6 +17,7 @@ function AddItemForm({ onSubmit, updateToyList }) {
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
 
+  // validerar formuläret
   const schema = validateSchema;
 
   const handleChange = (event) => {
@@ -24,6 +27,7 @@ function AddItemForm({ onSubmit, updateToyList }) {
       [id]: value
     }));
 
+    // validerar fältet när det ändras
     setTouched((prevTouched) => ({
       ...prevTouched,
       [id]: true
