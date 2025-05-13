@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './AddItemForm.css';
 import { validateSchema, inputValidation } from '../../data/validate';
 import { collection, addDoc } from 'firebase/firestore';

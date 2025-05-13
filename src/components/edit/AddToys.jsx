@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import AddItemForm from './AddItemForm.jsx';
-import { validateSchema } from '../../data/validate.js';
 import { NavLink } from 'react-router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';

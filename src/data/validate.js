@@ -17,15 +17,14 @@ const validateSchema = Joi.object({
       'any.required': 'Du behöver fylla i ditt lösenord.'
     }),
   name: Joi.string()
-    .min(5)
+    .min(4)
     .max(40)
     .regex(/^[a-zA-Z0-9 åäöÅÄÖ.,!?():-]*$/)
     .optional()
     .label('Namn'),
 
   category: Joi.string()
-    .min(3)
-    .max(30)
+    .valid('strandleksak', 'trädgårdsleksak', 'poolleksak')
     .optional()
     .label('Kategori'),
 
@@ -76,8 +75,8 @@ function inputValidation(touchedInput) {
       } else if (key === 'name') {
         if (!regex.test(dataToValidate.name)) {
           message[key] = 'Endast a-zA-Z0-9 åäöÅÄÖ.,!?:()- och mellanslag är tillåtna.';
-        } else if (dataToValidate.name.length < 3 || dataToValidate.name.length > 40) {
-          message[key] = 'Namnet måste vara mellan 3 och 40 tecken.';
+        } else if (dataToValidate.name.length < 4 || dataToValidate.name.length > 40) {
+          message[key] = 'Namnet måste vara mellan 4 och 40 tecken.';
         }
       } else if (key === 'image') {
         message[key] = 'Bildens URL måste vara giltig.';

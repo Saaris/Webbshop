@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import "./Toys.css";
 import { useNavigate } from "react-router";
 import { onSnapshot, collection } from 'firebase/firestore';
-import { db } from '../../data/database.js';
-import EditToy from "../../components/edit/EditToy.jsx";
-import Search from "../../components/search/Search.jsx";
+import { db } from '../../data/database';
+import EditToy from "../components/edit/EditToy.jsx";
+import Search from "../components/search/Search.jsx";
 
 
 const Toys = () => {
@@ -31,19 +31,6 @@ const Toys = () => {
   return (
     <div className="toys-container">
       
-      {isEditing ? (
-        <EditToy />
-      ) : (
-        <div className="search-toy-section">
-          <Search
-            toyList={toyList}
-            setFilteredToys={setFilteredToys}
-            handleSortChange={handleSortChange}
-          />
-        </div>
-      )}
-      
-
       {isLoggedIn && (
         <div className="edit-buttons-section">
           <button
