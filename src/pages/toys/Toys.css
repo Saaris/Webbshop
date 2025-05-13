@@ -12,13 +12,13 @@
     
 }
 .toy-card {
-    /* border: 2px solid #ccc; */
+    border: 2px solid #ccc; 
     border-radius: 8px;
     padding: 10px;
     text-align: center;
     box-shadow: var(--boxShadow);
     transition: transform 0.2s ease-in-out;
-    gap: 5px;
+    gap: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -163,4 +163,7 @@
 }
 .admin-heading{
     text-align: center;
+}
+.category-text {
+    font-style: italic;
 }
