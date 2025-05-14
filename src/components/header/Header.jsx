@@ -4,6 +4,7 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Logo from '../../assets/Logo.png'
 import { useToyStore } from '../../data/toyStore.js'
+import productsImg from '../../assets/productsImg.png';
 
 
 
@@ -22,10 +23,16 @@ const Header = () => {
 
           {!isLoggedIn && (
             <>
-              <NavLink to="/toys" className='heading'>Produkter</NavLink>
+           
+            <NavLink to="/toys" className='heading'>
+              <img src={productsImg} alt="Produkter" className="nav-icon" />
+              Produkter
+            </NavLink>
               <NavLink to="/cart" className='cart-link'>
+              
               <FontAwesomeIcon icon={faCartShopping} />
               {toyCount > 0 && <span className="cart-badge">{toyCount}</span>}
+               Varukorg
               </NavLink>
             </>
           )}

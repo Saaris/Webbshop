@@ -9,7 +9,6 @@ const useToyStore = create((set) => ({
     set({ isLoggedIn: status });
   },
   
-  
   cart: [],
   toyList: [],
   toyCount: 0, 

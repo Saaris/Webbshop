@@ -5,8 +5,13 @@ const Search = ({ toyList, setFilteredToys, handleSortChange }) => {
   const [searchValue, setSearchValue] = useState('');
 
   // Funktion för att matcha "needle" mot "haystack"
-  const matchToy = (needle, haystack) => {
-    return haystack.name.toLowerCase().includes(needle.toLowerCase());
+  const matchToy = (searchValue, toy) => {
+    const lower = searchValue.toLowerCase();
+    return (
+      toy.name.toLowerCase().includes(lower) ||
+      (toy.description && toy.description.toLowerCase().includes(lower)) ||
+      (toy.category && toy.category.toLowerCase().includes(lower))
+    );
   };
 
   // Filtrera leksaker baserat på söksträngen
