@@ -4,18 +4,12 @@ import Joi from 'joi';
 const validateSchema = Joi.object({
   username: Joi.string()
     .valid('admin')
-    .optional()
-    .messages({
-      'any.only': 'Användarnamn är fel.',
-      'any.required': 'Du behöver skriva in användarnamn.'
-    }),
+    .optional(),
+    
   password: Joi.string()
     .valid('password')
-    .optional()
-    .messages({
-      'any.only': 'Lösenordet är fel.',
-      'any.required': 'Du behöver fylla i ditt lösenord.'
-    }),
+    .optional(), 
+    
   name: Joi.string()
     .min(4)
     .max(40)
@@ -79,7 +73,7 @@ function inputValidation(touchedInput) {
           message[key] = 'Namnet måste vara mellan 4 och 40 tecken.';
         }
       } else if (key === 'image') {
-        message[key] = 'Bildens URL måste vara giltig.';
+        message[key] = 'Ange en giltig URL.';
 
       } else if (key === 'description') {
         message[key] = 'Ge en beskrivning av produkten.';
