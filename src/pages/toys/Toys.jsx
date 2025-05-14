@@ -30,7 +30,11 @@ const Toys = () => {
 
   return (
     <div className="toys-container">
-      <Search />
+        <Search
+          toyList={toyList}
+          setFilteredToys={setFilteredToys}
+          handleSortChange={handleSortChange}
+        />
       {isLoggedIn && (
         <div className="edit-buttons-section">
           <button
@@ -47,10 +51,11 @@ const Toys = () => {
       )}
 
       <div className="toy-section">
-        {toyList.length === 0 ? (
-          <p>Laddar alla våra leksaker...</p>
+        {filteredToys.length === 0 ? (
+          <p>Produkten du söker finns inte</p>
+          
         ) : (
-          toyList.map((t) => (
+          filteredToys.map((t) => (
             <div key={t.id} className="toy-card">
               {isEditing && editToy?.id === t.id ? (
                 <EditToy />
