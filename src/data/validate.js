@@ -3,14 +3,14 @@ import Joi from 'joi';
 // Joi schema for login, addItem och editToy
 const validateSchema = Joi.object({
   username: Joi.string()
-    .valid('mytoysadmin')
+    .valid('admin')
     .optional()
     .messages({
       'any.only': 'Användarnamn är fel.',
       'any.required': 'Du behöver skriva in användarnamn.'
     }),
   password: Joi.string()
-    .valid('We4545!')
+    .valid('password')
     .optional()
     .messages({
       'any.only': 'Lösenordet är fel.',
