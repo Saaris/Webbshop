@@ -11,7 +11,7 @@ import Search from "../../components/search/Search.jsx";
 const Toys = () => {
   const {
     isLoggedIn, toyList, addToCart, isEditing, editToy, setToys, setEditing,
-    handleEditClick, removeItem, handleSortChange, handleLogout} = useToyStore();
+    handleEditClick, removeItem, handleLogout} = useToyStore();
 
   const navigate = useNavigate();
 
@@ -27,6 +27,23 @@ const Toys = () => {
 
     return () => unsubscribe();
   }, [setToys]);
+
+  const handleSortChange = (event) => {
+    const value = event.target.value;
+    let sortedToys = [...filteredToys];
+  
+    if (value === "name-asc") {
+      sortedToys.sort((a, b) => a.name.localeCompare(b.name, 'sv'));
+    } else if (value === "name-desc") {
+      sortedToys.sort((a, b) => b.name.localeCompare(a.name, 'sv'));
+    } else if (value === "price-asc") {
+      sortedToys.sort((a, b) => a.price - b.price);
+    } else if (value === "price-desc") {
+      sortedToys.sort((a, b) => b.price - a.price);
+    }
+  
+    setFilteredToys(sortedToys);
+  };
 
   return (
     <div className="toys-container">
