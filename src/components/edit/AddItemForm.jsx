@@ -62,7 +62,7 @@ function AddItemForm({updateToyList }) {
     try {
      
       await addToy(newToy);
-      console.log('New toy added:', newToy);
+      console.log('Ny leksak har lagts till:', newToy);
 
       // Uppdatera lokal lista om funktionen skickas som prop
       if (updateToyList) {
@@ -78,7 +78,7 @@ function AddItemForm({updateToyList }) {
         image: '',
       });
     } catch (error) {
-      console.error('Error adding toy:', error);
+      console.error('Error när du lägger till ny leksak:', error);
     }
   };
 

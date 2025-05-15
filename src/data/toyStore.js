@@ -95,33 +95,6 @@ handleEditClick: (toy) =>
   editToy: toy,
 }),
 
-handleSaveClick: async () => {
-  set((state) => {
-     const updatedToy = {
-      ...state.editToy,
-      price: Number(state.editToy.price), // Konvertera priset till ett nummer
-    };
-    const toyId = updatedToy.id;
-    
-    // Uppdatera Firestore
-    const toyDocRef = doc(db, 'toys', toyId);
-    updateDoc(toyDocRef, updatedToy)
-    .then(() => {
-      console.log(`Toy with id ${toyId} successfully updated in Firestore`);
-    })
-    .catch((error) => {
-      console.error('Error updating toy in Firestore:', error);
-    });
-    return {
-      toyList: state.toyList.map((toy) =>
-        toy.id === toyId ? updatedToy : toy
-    ),
-    isEditing: false,
-    editToy: null,
-  };
-});
-},
-
 
 handleInputChange: (name, value) =>
   set((state) => ({
@@ -166,14 +139,14 @@ removeItem: async (id) => {
   try {
     // ta bort leksak från firestore
     await deleteDoc(doc(db, 'toys', id));
-    console.log(`Item with id ${id} removed from Firestore`);
+    console.log(`Leksak med id ${id} togs bort från Firestore`);
     
     // Uppdat lokal state
     set((state) => ({
       toyList: state.toyList.filter((toy) => toy.id !== id),
     }));
   } catch (error) {
-    console.error('Error, could not remove item:', error);
+    console.error('Error, kan ej ta bort item:', error);
   }
 },
 
