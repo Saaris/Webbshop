@@ -82,10 +82,21 @@
     right: 13px;
     padding: 0 4px;
   }
+  .header {
+    padding: 8px 10px;
+  }
     
 }
 @media (max-width: 400px) {
  .logo {
     width: 70%;
+  }
+  .cart-badge {
+    width: 18px;
+    height: 18px;
+    font-size: 12px;
+    top: -15px;
+    right: 13px;
+    padding: 0 4px;
   }
 }

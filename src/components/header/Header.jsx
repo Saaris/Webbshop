@@ -19,7 +19,7 @@ const Header = () => {
       <NavLink to="/"><img src={Logo} className='logo'/></NavLink>
          
         <nav className='navbar'>
-          {isLoggedIn && <p className="admin-heading">Admin</p>}
+          {isLoggedIn && <p className="admin-heading">Admin inloggad</p>}
 
           {!isLoggedIn && (
             <>
