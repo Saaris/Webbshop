@@ -21,7 +21,7 @@ const Toys = () => {
     handleLogout
   } = useToyStore();
 
-  const [showMessage, setShowMessage] = useState(false);
+  const [clickedToyId, setClickedToyId] = useState(null);
 
   const navigate = useNavigate();
   const [filteredToys, setFilteredToys] = useState(toyList);
@@ -86,7 +86,7 @@ const Toys = () => {
           <p>Produkten du söker finns inte</p>
         ) : (
           filteredToys.map((t) => (
-            <div key={t.id} className="toy-card">
+            <div key={t.id} className={`toy-card ${clickedToyId === t.id ? "card-animate" : ""}`}>
               {isEditing && editToy?.id === t.id ? (
                 <EditToy />
               ) : (
@@ -99,11 +99,15 @@ const Toys = () => {
 
                   {!isLoggedIn && (
                     <button
-                      onClick={() => addToCart(t)}
-                      className="add-toy-button"
-                    >
-                      Lägg till
-                    </button>
+                    onClick={() => {
+                      addToCart(t);
+                      setClickedToyId(t.id);
+                      setTimeout(() => setClickedToyId(null), 600); 
+                    }}
+                    className="add-toy-button"
+                  >
+                    Lägg till
+                  </button>
                   )}
 
                   {isLoggedIn && (

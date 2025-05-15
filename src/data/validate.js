@@ -46,15 +46,12 @@ function inputValidation(touchedInput) {
   let message = {};
 
   const results = validateSchema.validate(dataToValidate, { abortEarly: false });
-  console.log('Validation Results:', results);
-
+  
   if (results.error) {
     results.error.details.forEach((e) => {
       const key = e.context.key;
 
       const regex = /^[a-zA-Z0-9 åäöÅÄÖ.,!?():-]*$/;
-
-      console.log('Validation Errors:', message);
 
       //validerings fel för login
       if (key === 'username') {
