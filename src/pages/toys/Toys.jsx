@@ -21,6 +21,8 @@ const Toys = () => {
     handleLogout
   } = useToyStore();
 
+  const [showMessage, setShowMessage] = useState(false);
+
   const navigate = useNavigate();
   const [filteredToys, setFilteredToys] = useState(toyList);
 

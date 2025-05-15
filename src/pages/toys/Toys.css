@@ -92,8 +92,14 @@
     cursor: pointer;
     padding: 4px 8px;
     transition: background-color 0.3s ease;
-
+    font-family: 'Noto Sans', sans-serif;
 }
+.add-item-button:hover, .edit-toy-button:hover, 
+.remove-toy-button:hover, .logout-button:hover, 
+.save-button:hover {
+    background-color: var(--ButtonHoverColor);
+}
+
 .search-section {
     display: flex;
     flex-direction: row;

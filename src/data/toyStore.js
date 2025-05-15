@@ -24,6 +24,7 @@ const useToyStore = create((set) => ({
     toyList: t,
   })),
   
+  //lägg till i varukorg
   addToCart: (toy) =>
     set((state) => {
     const alreadyInCart = state.cart.some((item) => item.id === toy.id);
@@ -123,7 +124,7 @@ addToy: async (newToy) => {
   try {
     const toyWithNumberPrice = {
       ...newToy,
-      price: Number(newToy.price), // Konvertera priset till ett nummer
+      price: Number(newToy.price), 
     };
      const docRef = await addDoc(collection(db, 'toys'), toyWithNumberPrice);
     set((state) => ({
@@ -151,13 +152,13 @@ removeItem: async (id) => {
 },
 
 handleLogin: () => {
-  setIsLoggedIn(true); // Uppdatera state
+  setIsLoggedIn(true); 
   localStorage.setItem('isLoggedIn', JSON.stringify(true)); // Spara till localStorage
 },
 
 handleLogout: () => {
   localStorage.setItem('isLoggedIn', JSON.stringify(false)); // Uppdatera localStorage
-  set({ isLoggedIn: false }); // Uppdatera state
+  set({ isLoggedIn: false }); 
   console.log('Admin logged out');
 },
 

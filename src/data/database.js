@@ -1,9 +1,5 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-// Don't forget to import getFirestore for your database!
-import { getFirestore } from "firebase/firestore"; // <-- Add this line
-// You can also import getAnalytics if you plan to use it later
-// import { getAnalytics } from "firebase/analytics";
+import { getFirestore } from "firebase/firestore"; 
 
 
 // Your web app's Firebase configuration
@@ -23,8 +19,4 @@ const app = initializeApp(firebaseConfig);
 // Initialize Firestore and get a reference to the service
 const db = getFirestore(app);
 
-// Initialize Analytics if you uncommented it
-// const analytics = getAnalytics(app);
-
-// Export db so your importToys.js can use it
 export { db };

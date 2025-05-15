@@ -10,6 +10,8 @@ import './AddItemForm.css';
 function AddToys() {
   const [toys, setToys] = useState([]);
 
+  const [showMessage, setShowMessage] = useState(false);
+
   //useEffect- hämta leksaker från Firestore från collect. toys
   useEffect(() => {
     const fetchToys = async () => {
@@ -39,6 +41,8 @@ function AddToys() {
 
   // Om du sparar till Firestore, lägg till här
   // addDoc(collection(db, 'toys'), itemWithNumberPrice);
+  setShowMessage(true);
+  setTimeout(() => setShowMessage(false), 2000);
 };
 
   return (
@@ -50,10 +54,10 @@ function AddToys() {
         </NavLink>
         <span className="tooltip-text">Tillbaka</span>
         </div>
-        
+         {showMessage && (
+      <p className="confirmation-message animate-pop">Ny produkt har lagts till!</p>
+    )}
       <AddItemForm onSubmit={handleAddItem} />
-      
-
     </div>
   );
 }

@@ -1,13 +1,11 @@
 import { useState } from 'react';
 import './AddItemForm.css';
 import { validateSchema, inputValidation } from '../../data/validate';
-import { collection, addDoc } from 'firebase/firestore';
-import { db } from '../../data/database';
 import { useToyStore } from '../../data/toyStore.js';
 
 
 // lagrar formulärets nnehåll
-function AddItemForm({updateToyList }) {
+function AddItemForm({ onSubmit }) {
   const addToy = useToyStore((state) => state.addToy)
 
   const [formData, setFormData] = useState({
@@ -56,7 +54,7 @@ function AddItemForm({updateToyList }) {
 
     const newToy = {
       ...formData,
-      price: Number(formData.price), // Konvertera priset till ett nummer
+      price: Number(formData.price),
     };
 
     try {
@@ -64,12 +62,12 @@ function AddItemForm({updateToyList }) {
       await addToy(newToy);
       console.log('Ny leksak har lagts till:', newToy);
 
-      // Uppdatera lokal lista om funktionen skickas som prop
-      if (updateToyList) {
-        updateToyList(newToy);
+      // Skicka produktdata till AddToys
+      if (onSubmit) {
+        onSubmit(newToy); // Skicka det nya objektet, inte det tömda!
       }
 
-      // Återställ formuläret
+      // Återställ formuläret 
       setFormData({
         name: '',
         category: '',

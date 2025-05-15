@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from 'react-router'
+import { Outlet } from 'react-router'
 import { useEffect } from 'react'
 import './App.css'
 import Header from './components/header/Header.jsx'

@@ -4,7 +4,6 @@ import facebook from '../../assets/facebook.png'
 import instagram from '../../assets/instagram.png'
 import {NavLink} from 'react-router' 
 import adminIcon from '../../assets/adminIcon.png'
-import { useState } from 'react';
 import { useToyStore } from '../../data/toyStore.js'
 
 const Footer = () => {
