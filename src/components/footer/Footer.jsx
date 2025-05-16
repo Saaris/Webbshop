@@ -13,20 +13,19 @@ const Footer = () => {
 
     return (
             <div className="footer-content">
-                <div className='admin-icon-container'>
-                 <NavLink to="/login">
-                    <div className="admin-icon-tooltip">
-                      <img
-                          src={adminIcon}
-                          alt="admin icon"
-                          className='admin-icon'
-                          onClick={handleLogout} 
-                      />
-                      <span className="admin-tooltip-text">
-                        {isLoggedIn ? "logga ut" : "admin"}
-                      </span>
-                    </div>
-                 </NavLink>
+                <div className="admin-icon-tooltip">
+                  <NavLink to="/">
+                    <img
+                      src={adminIcon}
+                      alt="admin icon"
+                      className='admin-icon'
+                      onClick={handleLogout}
+                      style={{ cursor: "pointer" }}
+                    />
+                  </NavLink>
+                  <span className="admin-tooltip-text">
+                    {isLoggedIn ? "logga ut" : "admin"}
+                  </span>
                 </div>
 
                 <p>&copy; 2023 MyToys Aktiebolag</p>
