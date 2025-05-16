@@ -1,6 +1,7 @@
 import './Home.css'
 import { NavLink } from 'react-router'
 import imgHomepage from '../../assets/imgHomepage.jpeg'
+import dragdjur from '../../assets/dragdjur.jpg'
 import beachtoys from '../../assets/beachtoys.jpg'
 
  const Home = () => {
@@ -19,7 +20,8 @@ import beachtoys from '../../assets/beachtoys.jpg'
                  </div>
                 
                  <div className="img-info-container">
-                  <img src={beachtoys} alt="beach toys" className="pool-img" />
+                  <img src={dragdjur} alt="homepage-toys" className="pool-img" />
+                  <img src={beachtoys} alt="homepage-toys" className="pool-img" />
                  <p>Plaska med våra färgglada strandleksaker perfekt för soliga dagar.</p>
              </div>
          </div>

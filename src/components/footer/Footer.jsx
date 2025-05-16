@@ -19,7 +19,7 @@ const Footer = () => {
                         src={adminIcon}
                         alt="admin icon"
                         className='admin-icon'
-                        title={isLoggedIn ? "logga ut" : "logga in"}
+                        title={isLoggedIn ? "Logga ut" : "Admin login"}
                         onClick={handleLogout} 
                     />
                  </NavLink>
