@@ -6,6 +6,8 @@ import { onSnapshot, collection } from 'firebase/firestore';
 import { db } from '../../data/database';
 import EditToy from '../../components/edit/EditToy.jsx';
 import Search from "../../components/search/Search.jsx";
+import AddItemForm from "../../components/edit/AddItemForm.jsx";
+import close from "../../assets/close.png";
 
 const Toys = () => {
   const {
@@ -25,6 +27,8 @@ const Toys = () => {
 
   const navigate = useNavigate();
   const [filteredToys, setFilteredToys] = useState(toyList);
+
+  const [showAddModal, setShowAddModal] = useState(false);
 
   useEffect(() => {
     const unsubscribe = onSnapshot(collection(db, 'toys'), (snapshot) => {
@@ -65,7 +69,7 @@ const Toys = () => {
         <div className="edit-buttons-section">
           <button
             className="add-item-button"
-            onClick={() => navigate('/addToys')}
+             onClick={() => setShowAddModal(true)}
           >
             Lägg till produkt
           </button>
@@ -81,6 +85,17 @@ const Toys = () => {
         </div>
       )}
 
+        {showAddModal && (
+    <div className="modal-backdrop">
+      <div className="modal-content">
+        <button className="close-modal" onClick={() => setShowAddModal(false)}>
+          <img src={close} alt="Stäng" style={{ width: 20, height: 20 }} />
+        </button>
+        <h2>Lägg till ny produkt</h2>
+        <AddItemForm onSubmit={() => setShowAddModal(false)} />
+      </div>
+    </div>
+  )}
       <div className="toy-section">
         {filteredToys.length === 0 ? (
           <p>Produkten du söker finns inte</p>

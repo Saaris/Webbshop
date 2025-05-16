@@ -15,24 +15,21 @@ const Header = () => {
 
   return (
     <div className='header'>
-    
-      <NavLink to="/"><img src={Logo} className='logo'/></NavLink>
          
         <nav className='navbar'>
+          <NavLink to="/"><img src={Logo} className='logo' /></NavLink>
           {isLoggedIn && <p className="admin-heading">Admin inloggad</p>}
 
           {!isLoggedIn && (
             <>
-           
-            <NavLink to="/toys" className='heading'>
-              <img src={productsImg} alt="Produkter" className="nav-icon" />
-              Produkter
-            </NavLink>
+              <NavLink to="/toys" className='heading'>
+                <img src={productsImg} alt="Produkter" className="nav-icon" />
+                Produkter
+              </NavLink>
               <NavLink to="/cart" className='cart-link'>
-              
-              <FontAwesomeIcon icon={faCartShopping} />
-              {toyCount > 0 && <span className="cart-badge">{toyCount}</span>}
-               Varukorg
+                <FontAwesomeIcon icon={faCartShopping} />
+                {toyCount > 0 && <span className="cart-badge">{toyCount}</span>}
+                Varukorg
               </NavLink>
             </>
           )}

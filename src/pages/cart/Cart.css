@@ -70,6 +70,7 @@ img {
     align-items: center;
     justify-content: center;
     gap: 0.5em;
+    padding: 10px 0;
 }
 .checkout-button {
     background-color: #9acbcb;

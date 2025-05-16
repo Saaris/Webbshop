@@ -40,10 +40,10 @@ const Search = ({ toyList, setFilteredToys, handleSortChange }) => {
       <div className="sort-section">
         <label htmlFor="sort">Sortera:</label>
         <select className="sort-dropdown" onChange={handleSortChange}>
-          <option value="name-asc">Namn stigande</option>
-            <option value="name-desc">Namn fallande</option>
-          <option value="price-asc">Lägst till högst pris</option>
-          <option value="price-desc">Högst till lägst pris</option>
+          <option value="name-asc">Namn: A-Ö</option>
+            <option value="name-desc">Namn: Ö-A</option>
+          <option value="price-asc">Pris: lägst till högst</option>
+          <option value="price-desc">Pris: högst till lägst</option>
         </select>
       </div>
     </div>

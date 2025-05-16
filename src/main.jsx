@@ -6,7 +6,6 @@ import { createHashRouter, RouterProvider } from 'react-router'
 import Home from './pages/home/Home.jsx'
 import Toys from './pages/toys/Toys.jsx'
 import Cart from './pages/cart/Cart.jsx'
-import AddToys from './components/edit/AddToys.jsx'
 import Login from './pages/login/Login.jsx'
 import Pay from './pages/pay/Pay.jsx'
 
@@ -33,10 +32,6 @@ const router = createHashRouter (
       {
       path: '/login',
       Component: Login
-      },
-      {
-      path: '/addToys',
-      Component: AddToys
       },
       {
       path: '/pay',
