@@ -2,27 +2,32 @@ import './Footer.css'
 import twitter from '../../assets/twitter.png'
 import facebook from '../../assets/facebook.png'
 import instagram from '../../assets/instagram.png'
-import {NavLink} from 'react-router' 
+import {NavLink, useNavigate} from 'react-router' 
 import adminIcon from '../../assets/adminIcon.png'
 import { useToyStore } from '../../data/toyStore.js'
 
 const Footer = () => {
   const { isLoggedIn, handleLogout } = useToyStore();
 
-
+    const navigate = useNavigate();
 
     return (
             <div className="footer-content">
                 <div className="admin-icon-tooltip">
-                  <NavLink to="/">
-                    <img
-                      src={adminIcon}
-                      alt="admin icon"
-                      className='admin-icon'
-                      onClick={handleLogout}
-                      style={{ cursor: "pointer" }}
-                    />
-                  </NavLink>
+                  <img
+                    src={adminIcon}
+                    alt="admin icon"
+                    className='admin-icon'
+                    style={{ cursor: "pointer" }}
+                    onClick={() => {
+                      if (isLoggedIn) {
+                        handleLogout();
+                        navigate('/');
+                      } else {
+                        navigate('/login');
+                      }
+                    }}
+                  />
                   <span className="admin-tooltip-text">
                     {isLoggedIn ? "logga ut" : "admin"}
                   </span>
