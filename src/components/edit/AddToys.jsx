@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import AddItemForm from './AddItemForm.jsx';
 import { NavLink } from 'react-router';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../data/database';
 import './AddItemForm.css';
@@ -50,7 +48,6 @@ function AddToys() {
       <h2>Lägg till ny produkt</h2>
       <div className="hover-tooltip">
       <NavLink to="/toys"> 
-        <FontAwesomeIcon icon={faArrowLeft} />
         </NavLink>
         <span className="tooltip-text">Tillbaka</span>
         </div>

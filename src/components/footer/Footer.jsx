@@ -15,13 +15,17 @@ const Footer = () => {
             <div className="footer-content">
                 <div className='admin-icon-container'>
                  <NavLink to="/login">
-                    <img
-                        src={adminIcon}
-                        alt="admin icon"
-                        className='admin-icon'
-                        title={isLoggedIn ? "Logga ut" : "Admin login"}
-                        onClick={handleLogout} 
-                    />
+                    <div className="admin-icon-tooltip">
+                      <img
+                          src={adminIcon}
+                          alt="admin icon"
+                          className='admin-icon'
+                          onClick={handleLogout} 
+                      />
+                      <span className="admin-tooltip-text">
+                        {isLoggedIn ? "logga ut" : "admin"}
+                      </span>
+                    </div>
                  </NavLink>
                 </div>
 

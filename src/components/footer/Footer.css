@@ -30,3 +30,29 @@
     width: 16px;
     height: 16px;
 }
+
+.admin-icon-tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.admin-tooltip-text {
+  visibility: hidden;
+  opacity: 0;
+  color: var(--textColor);
+  text-align: center;
+  padding: 6px 12px;
+  position: absolute;
+  left: 250%;        
+  bottom: 25%; 
+  transform: translateX(-50%);
+  transition: opacity 0.3s;
+  font-size: 13px;
+  width: max-content;
+ 
+}
+
+.admin-icon-tooltip:hover .admin-tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}

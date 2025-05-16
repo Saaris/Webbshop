@@ -73,12 +73,7 @@
     font-size: 18px;
     width: 245px;
 }
-.fa-arrow-left {
-    font-size: 20px;
-    color: var(--textColor);
-    cursor: pointer;
-    transition: ease-in-out 0.3s;
-}
+
 .name-input {
     font-size: 18px;
 }
