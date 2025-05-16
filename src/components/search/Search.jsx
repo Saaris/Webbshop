@@ -22,7 +22,7 @@ const Search = ({ toyList, setFilteredToys, handleSortChange }) => {
 
    const filteredToys = toyList.filter((toy) => matchToy(value, toy));
   setFilteredToys(filteredToys); // Uppdatera filtrerade leksaker
-  console.log('Filtrerade leksaker:', filteredToys); // Logga de filtrerade leksakerna
+  
   };
 
   return (
